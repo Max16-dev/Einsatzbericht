@@ -1,0 +1,30 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
+
+.dateTime{
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    margin: 3px;
+    width: auto;
+    height: auto;
+}
+
+.alarmzeitDate{
+    width: 100px;
+}
+
+.abschnittAlarmArt{
+    margin-top: 50px;
+    float: left;
+    text-align: left;
+    display: flex;
+    left: 60px;
+    position: relative;
+    left: -330px;
+}
+
+.alarmArt{
+    margin-top: 50px;
+}
