@@ -15,16 +15,53 @@ body{
     width: 100px;
 }
 
-.abschnittAlarmArt{
-    margin-top: 50px;
+.alarmUeber{
+    margin-top: 25px;
     float: left;
     text-align: left;
     display: flex;
-    left: 60px;
+    left: 600px;
     position: relative;
     left: -330px;
 }
 
-.alarmArt{
-    margin-top: 50px;
+.alarmArtLeitstelle{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.alarmArtTelefon{
+    margin-top: 20px;
+    margin-left: 14px;
+}
+
+.abschnittAlarmArt{
+    margin-top: 60px;
+    float: left;
+    text-align: left;
+    display: flex;
+    left: 600px;
+    position: relative;
+    left: -610px;
+}
+
+.alarmArtVollalarm{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.alarmArtKleinschleife{
+    margin-top: 20px;
+    margin-left: 14px;
+}
+
+.alarmArtSonstiges{
+    height: 20px;
+    width: auto;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.einsatzArtSelect{
+    margin-top: 130px;
 }

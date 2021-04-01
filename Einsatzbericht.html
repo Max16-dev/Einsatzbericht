@@ -10,13 +10,46 @@
     </head>
     <body>
         <h2>Einsatzbericht</h2>
-        <h4 class="dateTime">Alarmzeit:</h4>
-        <input type="time" class="alarmzeit alarmzeitStunden dateTime" id="alarmzeitStunden">
-        <h4 class="dateTime">Datum:</h4>
-        <input type="date" id="alarmzeitDate" name="alarmzeitDate" class="dateTime alarmzeitDate">
+        <div>
+            <h4 class="dateTime">Alarmzeit:</h4>
+            <input type="time" class="alarmzeit alarmzeitStunden dateTime" id="alarmzeitStunden">
+            <h4 class="dateTime">Datum:</h4>
+            <input type="date" id="alarmzeitDate" name="alarmzeitDate" class="dateTime alarmzeitDate">
+        </div>
         <br>
-        <h4 class="abschnittAlarmArt">Alarmart:</h4>
-        <label for="alarmArtVollalarm" class="alarmArtText">Vollalarm</label>
-        <input type="checkbox" id="alarmArtVollalarm" class="alarmArt">
+        <div class="alarmUeber">
+            <h4 class="AlarmUeberHeader">Alarm über: </h4>
+            <label for="alarmUeberLeitstelle" class="alarmArtLeitstelle">Leistelle</label>
+            <input type="checkbox" id="alarmUeberLeitstelle" class="alarmUeberCheckBox alarmArtLeitstelle">
+            <label for="alarmUeberTelefon" class="alarmArtTelefon">Telefon</label>
+            <input type="checkbox" id="alarmUeberTelefon" class="alarmUeberCheckBox alarmArtTelefon">
+        </div>
+        <div class="abschnittAlarmArt">
+            <h4 class="abschnittAlarmArtHeader">Alarmart:</h4>
+            <label for="alarmArtVollalarm" class="alarmArtText alarmArtVollalarm">Vollalarm</label>
+            <input type="checkbox" id="alarmArtVollalarm" class="alarmArt alarmArtVollalarm">
+            <label for="alarmArtKleinschleife" class="alarmArtText alarmArtKleinschleife">Kleinschleife</label>
+            <input type="checkbox" id="alarmArtKleinschleife" class="alarmArt alarmArtKleinschleife">
+            <input type="text" id="alarmArtSonstiges" class="alarmArt alarmArtSonstiges" placeholder="Sonstiges">
+        </div>
+        <div class="einsatzArtSelect">
+            <h4>Einsatztyp auswählen:</h4>
+            <select id="einsatzArt" onchange="changeEinsatzTyp()">
+                <option id="typAuswahl">Auswählen</option>
+                <option id="typBrand">Brand</option>
+                <option id="typBrandmeldeanlage">Brandmeldeanlage</option>
+                <option id="typTechnischeHilfeleistung">Technische Hilfeleistung</option>
+                <option id="typAlle">Alles anzeigen</option>
+            </select>
+        </div>
+        <div id="anzeigeTypBrand" hidden>
+            <p>Brand</p>
+        </div>
+        <div id="anzeigeTypBrandmeldeanlage" hidden>
+            <p>BMA</p>
+        </div>
+        <div id="anzeigeTypTechnischeHilfeleistung" hidden>
+            <p>TH</p>
+        </div>
     </body>
 </html>
