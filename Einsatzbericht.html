@@ -286,13 +286,55 @@
         </div>
         <div class="BerichtVerlaufEinsatzesUndLoeschOderHilfeleistungsmaßnahmen">
             <div class="WasHatGebranntMitObjektUndLageBereich">
-                <h4>a) Was hat gebrannt, mit den Angaben des betroffenen Objekts / Lage bei Eintreffen</h4>
+                <h4>a) Was hat gebrannt, mit den Angaben des betroffenen Objekts / Lage bei Eintreffen: </h4>
                 <textarea id="WasHatGebranntMitObjektUndLage" class="WasHatGebranntMitObjektUndLage"></textarea>
             </div>
             <div class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterBereich">
-                <h4>b) Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter (Anzahl)</h4>
+                <h4>b) Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter (Anzahl): </h4>
                 <textarea id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter" class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter"></textarea>
             </div>
+        </div>
+        <div class="EntstehungsursacheBereich">
+            <h4>Entstehungsursache: </h4>
+            <textarea id="Entstehungsursache" class="Entstehungsursache"></textarea>
+        </div>
+        <div class="BesondereVorkommnisseAnDerEinsatzstelle">
+            <h4>Besondere Vorkommnisse an der Einsatzstelle:</h4>
+            <p class="BesondereVorkommnisseAnDerEinsatzstelleBeschreibung">(z.B. Brandwachen, veranlasste Benachrichtigungen von Behörden, Schäden an FF-Fahrzeugen, sonst. Bemerkungen)</p>
+            <textarea id="BesondereVorkommnisseAnDerEinsatzstelle" class="BesondereVorkommnisseAnDerEinsatzstelle"></textarea>
+            <h4>Vor Ort: </h4>
+            <input type="checkbox" id="VorOrtKommandant" class="VorOrtKommandant">
+            <label for="VorOrtKommandant">Kommandant</label>
+            <br>
+            <input type="checkbox" id="VorOrtStellvKommandant" class="VorOrtStellvKommandant einsatztypAbstand">
+            <label for="VorOrtStellvKommandant">Stellv. Kommandant</label>
+            <br>
+            <input type="checkbox" id="VorOrtOberbuegermeister" class="VorOrtOeberbuegermeister einsatztypAbstand">
+            <label for="VorOrtOeberbuegermeister">Oberbürgermeister</label>
+            <br>
+            <input type="checkbox" id="VorOrtOrtsvorsteher" class="VorOrtOrtsvorsteher einsatztypAbstand">
+            <label for="VorOrtOrtsvorsteher">Orstvorsteher /-in</label>
+            <br>
+            <input type="checkbox" id="VorOrtKBM" class="VorOrtKBM einsatztypAbstand">
+            <label for="VorOrtKBM">KBM</label>
+            <br>
+            <input type="checkbox" id="VorOrtNotarzt" class="VorOrtNotarzt einsatztypAbstand">
+            <label for="VorOrtNotarzt">Notarzt</label>
+            <br>
+            <input type="checkbox" id="VorOrtRettungsdienst" class="VorOrtRettungsdienst einsatztypAbstand">
+            <label for="VorOrtRettungsdienst">Rettungsdienst</label>
+            <br>
+            <input type="checkbox" id="VorOrtSanitaetsdienst" class="VorOrtSanitaetsdienst einsatztypAbstand">
+            <label for="VorOrtSanitaetsdienst">Sanitätsdienst</label>
+            <br>
+            <input type="checkbox" id="VorOrtPolizei" class="VorOrtPolizei einsatztypAbstand">
+            <label for="VorOrtPolizei">Polizei</label>
+            <br>
+            <input type="checkbox" id="VorOrtTHW" class="VorOrtTHW einsatztypAbstand">
+            <label for="VorOrtTHW">THW</label>
+            <br>
+            <label for="VorOrtSonstiges">Sonstiges</label>
+            <input type="text" id="VorOrtSonstiges" class="VorOrtSonstiges einsatztypAbstand">
         </div>
     </body>
 </html>

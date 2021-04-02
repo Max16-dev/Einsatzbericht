@@ -202,3 +202,27 @@ body{
     width: 1000px;
     height: 500px;
 }
+
+.EntstehungsursacheBereich{
+    margin-top: 50px;
+}
+
+.Entstehungsursache{
+    width: 1000px;
+    height: 100px;
+}
+
+.BesondereVorkommnisseAnDerEinsatzstelle{
+    margin-top: 50px;
+}
+
+.BesondereVorkommnisseAnDerEinsatzstelleBeschreibung{
+    font-size: 13px;
+    margin-top: -15px;
+}
+
+.BesondereVorkommnisseAnDerEinsatzstelle{
+    margin-top: -5px;
+    height: 150px;
+    width: 1000px;
+}
