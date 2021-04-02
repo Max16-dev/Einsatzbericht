@@ -236,7 +236,7 @@
             <label for="lageEinsatzstelleAufDemWasser">auf dem Wasser</label>
         </div>
         <div class="NameUndAnschriftVerursacherOderGeschaedigten">
-            <h4 class="NameUndAnschriftVerursacherOderGeschaedigtenHeader">Name und Anschrift des Verursacher / Geschädigten</h4>
+            <h4 class="NameUndAnschriftVerursacherOderGeschaedigtenHeader">Name und Anschrift des Verursacher / Geschädigten: </h4>
             <label for="NameUndAnschriftVerursacherOderGeschaedigtenName">Name:</label>
             <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenName" class="NameUndAnschriftVerursacherOderGeschaedigtenName einsatztypAbstand">
             <br>
@@ -245,6 +245,57 @@
             <br>
             <label for="NameUndAnschriftVerursacherOderGeschaedigtenOrt">Ort:</label>
             <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenOrt" class="NameUndAnschriftVerursacherOderGeschaedigtenOrt einsatztypAbstand">
+        </div>
+        <div class="GeretteteMenschen">
+            <h4 class="GeretteteMenschenHeader">Gerettete Menschen (nur im Stadtgebiet): </h4>
+            <div>
+                <input type="checkbox" id="GeretteteMenschenBrand" class="GeretteteMenschenBrand">
+                <label for="GeretteteMenschenBrand">Bei Bränden: </label>
+                <input type="number" id="GeretteteMenschenBrandAnzahl" class="MenschenAnzahlNummer">
+                <div class="GeretteteMenschenBrandAnzahl">
+                    <label for="GeretteteMenschenBrandAnzahlFahrzeugbraende">- davon Fahrzeugbrände: </label>
+                    <input type="number" id="GeretteteMenschenBrandAnzahlFahrzeugbraende" class="MenschenAnzahlNummer">
+                    <br>
+                    <label for="GeretteteMenschenBrandAnzahlMitRauchgasintoxikation">- davon mit Rauchgasintoxikation: </label>
+                    <input type="number" id="GeretteteMenschenBrandAnzahlMitRauchgasintoxikation" class="MenschenAnzahlNummer">
+                </div>
+                <label for="GeretteteMenschenTechnischeHilfe">Bei Technische Hilfe: </label>
+                <input type="number" id="GeretteteMenschenTechnischeHilfe" class="MenschenAnzahlNummer">
+            </div>
+        </div>
+            <h4>Tote (nur im Stadtgebiet): </h4>
+            <div>
+                <input type="checkbox" id="ToteMenschenBrand" class="GeretteteMenschenBrand">
+                <label for="ToteMenschenBrand">Bei Bränden: </label>
+                <input type="number" id="ToteMenschenBrand" class="MenschenAnzahlNummer">
+                <div class="ToteMenschenBrandAnzahl">
+                    <label for="ToteMenschenBrandAnzahlFahrzeugbraende">- davon Fahrzeugbrände: </label>
+                    <input type="number" id="ToteMenschenBrandAnzahlFahrzeugbraende" class="MenschenAnzahlNummer">
+                </div>
+                <div class="ToteMenschenTechnischeHilfeAnzahl">
+                    <label for="ToteMenschenTechnischeHilfe">Bei Technische Hilfe: </label>
+                    <input type="number" id="ToteMenschenTechnischeHilfe" class="MenschenAnzahlNummer">
+                    <div class="ToteMenschenTechnischeHilfeleistungAnzahl">
+                        <label for="ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle">- davon Fahrzeugbrände: </label>
+                        <input type="number" id="ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle" class="MenschenAnzahlNummer">
+                    </div>
+                </div>
+            </div>
+        <div class="TierRettung">
+              <div>
+                  <label for="AnzahlTierRettung"><h4>Tier-Rettung: </h4></label>
+                  <input type="number" id="AnzahlTierRettung" class="TierRettungAnzahl">
+              </div>
+        </div>
+        <div class="BerichtVerlaufEinsatzesUndLoeschOderHilfeleistungsmaßnahmen">
+            <div class="WasHatGebranntMitObjektUndLageBereich">
+                <h4>a) Was hat gebrannt, mit den Angaben des betroffenen Objekts / Lage bei Eintreffen</h4>
+                <textarea id="WasHatGebranntMitObjektUndLage" class="WasHatGebranntMitObjektUndLage"></textarea>
+            </div>
+            <div class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterBereich">
+                <h4>b) Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter (Anzahl)</h4>
+                <textarea id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter" class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter"></textarea>
+            </div>
         </div>
     </body>
 </html>

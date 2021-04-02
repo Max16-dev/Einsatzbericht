@@ -157,3 +157,49 @@ body{
     margin-top: 50px;
     margin-bottom: 9px;
 }
+
+.GeretteteMenschen{
+    margin-top: 50px;
+}
+
+.GeretteteMenschenBrandAnzahl{
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.MenschenAnzahlNummer{
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.ToteMenschenBrandAnzahl{
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.ToteMenschenTechnischeHilfeleistungAnzahl{
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.TierRettung{
+    margin-top: 50px;
+}
+
+.TierRettungAnzahl{
+    width: 40px;
+}
+
+.BerichtVerlaufEinsatzesUndLoeschOderHilfeleistungsmaßnahmen{
+    margin-top: 50px;
+}
+
+.WasHatGebranntMitObjektUndLage{
+    width: 1000px;
+    height: 500px;
+}
+
+.TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter{
+    width: 1000px;
+    height: 500px;
+}
