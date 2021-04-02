@@ -226,3 +226,25 @@ body{
     height: 150px;
     width: 1000px;
 }
+
+.VerbrauchtesMaterialBereich{
+    margin-top: 450px;
+}
+
+.VerbrauchtesMaterialBeschreibung{
+    font-size: 13px;
+    margin-top: -15px;
+}
+
+.VerbrauchtesMaterial{
+    height: 200px;
+    width: 1000px;
+}
+
+.FragenZumEinsatzBerichtBereich{
+    margin-top: 50px;
+}
+
+.FragenZumEinsatzBericht{
+    width: 350px;
+}
