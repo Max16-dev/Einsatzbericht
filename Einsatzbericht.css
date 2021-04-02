@@ -117,3 +117,11 @@ body{
     height: auto;
     width: 500px;
 }
+
+.artEinsatzstelle{
+    margin-top: 50px;
+}
+
+.artEinsatzstelleHeader{
+    margin-bottom: 10px;
+}
