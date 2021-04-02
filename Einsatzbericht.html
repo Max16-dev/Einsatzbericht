@@ -188,9 +188,63 @@
                 <label for="artEinsatzstelleWald" class="artEinsatzstelleLabel">Wald</label>
                 <br>
                 <input type="text" id="technischeHilfeleistungMenschenrettungSonstiges" class="technischeHilfeleistungMenschenrettungSonstiges einsatztypAbstand" placeholder="Sonstiges">
-                <!--
-                    
-                -->
+        </div>
+        <div id="lageEinsatzstelle" class="lageEinsatzstelle">
+            <h4 class="lageEinsatzstelleHeader">Lage der Einsatzstelle: </h4>
+            <label for="lageEinsatzstelleStrasse" class="artEinsatzstelleLabel">Straße + Hausnummer: </label>
+            <input type="text" id="lageEinsatzstelleStrasse" class="lageEinsatzstelleStrasse einsatztypAbstand" placeholder="Straße + Hausnummer eingeben">
+            <br>
+            <div class="lageEinsatzstelleOrt">
+                <label for="lageEinsatzstelleOrt">Ort: </label>
+                <select id="lageEinsatzstelleOrt">
+                    <option id="lageEinsatzstelleOrtAuswahl">Auswählen</option>
+                    <option id="lageEinsatzstelleOrtBeinstein">Beinstein</option>
+                    <option id="lageEinsatzstelleOrtBittenfeld">Bittenfeld</option>
+                    <option id="lageEinsatzstelleOrtHegnach">Hegnach</option>
+                    <option id="lageEinsatzstelleOrtHohenacker">Hohenacker</option>
+                    <option id="lageEinsatzstelleOrtNeustadt">Neustadt</option>
+                    <option id="lageEinsatzstelleOrtWaiblingen">Waiblingen</option>
+                </select>
+            </div>
+            <br>
+            <div class="lageEinsatzstelleOrtUeberlandhilfe">
+                <label for="lageEinsatzstelleOrtUeberlandhilfe">Überlandhilfe: </label>
+                <input type="text" id="lageEinsatzstelleOrtUeberlandhilfe" class="lageEinsatzstelleOrtUeberlandhilfeTxt" placeholder="Ort eingeben">
+            </div>
+            <div class="lageEinsatzstelleGebaeude">
+                <p>Gebäude: </p>
+                <div class="lageEinsatzstelleGebaeudeInhalt">
+                    <input type="checkbox" id="lageEinsatzstelleGebaeudeUntergeschoss" class="lageEinsatzstelleGebaeudeUntergeschoss">
+                    <label for="lageEinsatzstelleGebaeudeUntergeschossAnzahl">Untergeschoss</label>
+                    <input type="number" id="lageEinsatzstelleGebaeudeUntergeschossAnzahl" class="lageEinsatzstelleGebaeudeAnzahl">
+                    <br>
+                    <input type="checkbox" id="lageEinsatzstelleGebaeudeErdgeschoss" class="lageEinsatzstelleGebaeudeErdgeschoss einsatztypAbstand">
+                    <label for="lageEinsatzstelleGebaeudeErdgeschoss" class="einsatztypAbstand">Erdgeschoss</label>
+                    <br>
+                    <input type="checkbox" id="lageEinsatzstelleGebaeudeObergeschoss" class="lageEinsatzstelleGebaeudeObergeschoss einsatztypAbstand">
+                    <label for="lageEinsatzstelleGebaeudeObergeschoss">Obergeschoss</label>
+                    <input type="number" id="lageEinsatzstelleGebaeudeObergeschoss" class="lageEinsatzstelleGebaeudeAnzahl">
+                    <br>
+                    <input type="checkbox" id="lageEinsatzstelleGebaeudeDachgeschoss" class="lageEinsatzstelleGebaeudeDachgeschoss einsatztypAbstand">
+                    <label for="lageEinsatzstelleGebaeudeDachgeschoss" class="einsatztypAbstand">Dachgeschoss</label>
+                </div>
+            </div>
+            <input type="checkbox" id="lageEinsatzstelleFreigelaende" class="lageEinsatzstelleFreigelaende einsatztypAbstand">
+            <label for="lageEinsatzstelleFreigelaende">Freigelände</label>
+            <br>
+            <input type="checkbox" id="lageEinsatzstelleAufDemWasser" class="lageEinsatzstelleAufDemWasser einsatztypAbstand">
+            <label for="lageEinsatzstelleAufDemWasser">auf dem Wasser</label>
+        </div>
+        <div class="NameUndAnschriftVerursacherOderGeschaedigten">
+            <h4 class="NameUndAnschriftVerursacherOderGeschaedigtenHeader">Name und Anschrift des Verursacher / Geschädigten</h4>
+            <label for="NameUndAnschriftVerursacherOderGeschaedigtenName">Name:</label>
+            <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenName" class="NameUndAnschriftVerursacherOderGeschaedigtenName einsatztypAbstand">
+            <br>
+            <label for="NameUndAnschriftVerursacherOderGeschaedigtenStrasse">Straße:</label>
+            <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenStrasse" class="NameUndAnschriftVerursacherOderGeschaedigtenStrasse einsatztypAbstand">
+            <br>
+            <label for="NameUndAnschriftVerursacherOderGeschaedigtenOrt">Ort:</label>
+            <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenOrt" class="NameUndAnschriftVerursacherOderGeschaedigtenOrt einsatztypAbstand">
         </div>
     </body>
 </html>

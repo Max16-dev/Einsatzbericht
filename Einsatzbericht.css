@@ -125,3 +125,35 @@ body{
 .artEinsatzstelleHeader{
     margin-bottom: 10px;
 }
+
+.lageEinsatzstelleHeader{
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.lageEinsatzstelleStrasse{
+    width: 450px;
+}
+
+.lageEinsatzstelleOrt{
+    margin-top: 10px;
+}
+
+.lageEinsatzstelleOrtUeberlandhilfe{
+    margin-top: -5px;
+}
+
+.lageEinsatzstelleGebaeudeAnzahl{
+    width: 40px;
+}
+
+.lageEinsatzstelleGebaeudeInhalt{
+    margin-left: 20px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.NameUndAnschriftVerursacherOderGeschaedigtenHeader{
+    margin-top: 50px;
+    margin-bottom: 9px;
+}
