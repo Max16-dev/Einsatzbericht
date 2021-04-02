@@ -4,9 +4,7 @@
         <title>Einsatzbericht FWN</title>
         <script src="Einsatzbericht.js"></script>
         <link rel="stylesheet" href="Einsatzbericht.css">
-        <script>
-            
-        </script>
+
     </head>
     <body>
         <h2>Einsatzbericht</h2>
@@ -19,17 +17,27 @@
         <br>
         <div class="alarmUeber">
             <h4 class="AlarmUeberHeader">Alarm über: </h4>
-            <label for="alarmUeberLeitstelle" class="alarmArtLeitstelle">Leistelle</label>
-            <input type="checkbox" id="alarmUeberLeitstelle" class="alarmUeberCheckBox alarmArtLeitstelle">
-            <label for="alarmUeberTelefon" class="alarmArtTelefon">Telefon</label>
-            <input type="checkbox" id="alarmUeberTelefon" class="alarmUeberCheckBox alarmArtTelefon">
+            <div class="alarmAbstand">
+                <input type="checkbox" id="alarmUeberLeitstelle" class="">
+                <label for="alarmUeberLeitstelle" class="">Leistelle</label>
+            </div>
+            <div class="alarmAbstand">
+                <input type="checkbox" id="alarmUeberTelefon" class="">
+                <label for="alarmUeberTelefon" class="">Telefon</label>
+            </div>
+            
         </div>
         <div class="abschnittAlarmArt">
             <h4 class="abschnittAlarmArtHeader">Alarmart:</h4>
-            <label for="alarmArtVollalarm" class="alarmArtText alarmArtVollalarm">Vollalarm</label>
-            <input type="checkbox" id="alarmArtVollalarm" class="alarmArt alarmArtVollalarm">
-            <label for="alarmArtKleinschleife" class="alarmArtText alarmArtKleinschleife">Kleinschleife</label>
-            <input type="checkbox" id="alarmArtKleinschleife" class="alarmArt alarmArtKleinschleife">
+            <div class="alarmAbstand">
+                <input type="checkbox" id="alarmArtVollalarm" class="">
+                <label for="alarmArtVollalarm" class="">Vollalarm</label>
+            </div>
+            <div class="alarmAbstand">
+                <input type="checkbox" id="alarmArtKleinschleife" class="">
+                <label for="alarmArtKleinschleife" class="">Kleinschleife</label>
+            </div>
+            
             <input type="text" id="alarmArtSonstiges" class="alarmArt alarmArtSonstiges" placeholder="Sonstiges">
         </div>
         <div class="einsatzArtSelect">
@@ -39,27 +47,115 @@
                 <option id="typBrand">Brand</option>
                 <option id="typBrandmeldeanlage">Brandmeldeanlage</option>
                 <option id="typTechnischeHilfeleistung">Technische Hilfeleistung</option>
+                <option id="typSonstiges">Sonstige Einsätze</option>
                 <option id="typAlle">Alles anzeigen</option>
             </select>
         </div>
         <div id="anzeigeTypBrand" hidden>
+            <h4 class="brandHeader">Brand: </h4>
+            <input type="checkbox" id="brandKleinbrandA" class="brandKleinbrandA">
             <label for="brandKleinbrandA">Kleinbrand <b>A</b>: Kleinlöschgerät</label>
-            <input type="checkbox" id="brandKleinbrandA" class="brandKleinbrandA einsatztypAbstand">
             <br>
-            <label for="brandKleinbrandB">Kleinbrand <b>B</b>: 1 Rohr</label>
             <input type="checkbox" id="brandKleinbrandB" class="brandKleinbrandB einsatztypAbstand">
+            <label for="brandKleinbrandB">Kleinbrand <b>B</b>: 1 Rohr</label>
             <br>
-            <label for="brandMittelbrand">Mittelbrand: 2 oder 3 Rohre</label>
             <input type="checkbox" id="brandMittelbrand" class="brandMittelbrand einsatztypAbstand">
+            <label for="brandMittelbrand">Mittelbrand: 2 oder 3 Rohre</label>
             <br>
-            <label for="brandGrossbrand">Großbrand: ab 4 Rohre</label>
             <input type="checkbox" id="brandGrossbrand" class="brandGrossbrand einsatztypAbstand">
+            <label for="brandGrossbrand">Großbrand: ab 4 Rohre</label>
+            <br>
+            <input type="checkbox" id="brandÜberlandhilfeBrand" class="brandÜberlandhilfeBrand einsatztypAbstand">
+            <label for="brandÜberlandhilfeBrand">Überlandhilfe Brand</label>
+            <br>
+            <input type="checkbox" id="brandBlinderAlarm" class="brandBlinderAlarm einsatztypAbstandGross">
+            <label for="brandBlinderAlarm">Blinder Alarm</label>
+            <input type="checkbox" id="brandBlinderAlarmRauchwarnmelder" class="einsatztypAbstandGross brandBlinderAlarmRauchwarnmelder">
+            <label for="brandBlinderAlarmRauchwarnmelder" class="">(Rauchwarnmelder)</label>
+            <br>
+            <input type="checkbox" id="brandBoeswilligerAlarm" class="brandBoeswilligerAlarm einsatztypAbstand">
+            <label for="brandBoeswilligerAlarm">Böswilliger Alarm</label>
         </div>
         <div id="anzeigeTypBrandmeldeanlage" hidden>
-            <p>BMA</p>
+            <h4 class="brandBMAHeader">Brandmeldeanlage: </h4>
+            <input type="checkbox" id="brandKleinbrandABMA" class="brandKleinbrandABMA einsatztypAbstand">
+            <label for="brandKleinbrandABMA">Kleinbrand <b>A</b>: Kleinlöschgerät (BMA)</label>
+            <br>
+            <input type="checkbox" id="brandKleinbrandBBMA" class="brandKleinbrandBBMA einsatztypAbstand">
+            <label for="brandKleinbrandBBMA">Kleinbrand <b>B</b>: 1 Rohr (BMA)</label>
+            <br>
+            <input type="checkbox" id="brandMittelbrandBMA" class="brandMittelbrandBMA einsatztypAbstand">
+            <label for="brandMittelbrandBMA">Mittelbrand: 2 oder 3 Rohre (BMA)</label>
+            <br>
+            <input type="checkbox" id="brandGrossbrandBMA" class="brandGrossbrandBMA einsatztypAbstand">
+            <label for="brandGrossbrandBMA">Großbrand: ab 4 Rohre (BMA)</label>
+            <br>
+            <input type="checkbox" id="brandÜberlandhilfeBrandBMA" class="brandÜberlandhilfeBrandBMA einsatztypAbstand">
+            <label for="brandÜberlandhilfeBrandBMA">Überlandhilfe Brand (BMA)</label>
         </div>
         <div id="anzeigeTypTechnischeHilfeleistung" hidden>
-            <p>TH</p>
+            <h4 class="technischeHilfeleistungHeader">Technische Hilfeleistung</h4>
+            <input type="checkbox" id="technischeHilfeleistungMenschenrettung" class="technischeHilfeleistungMenschenrettung einsatztypAbstand">
+            <label for="technischeHilfeleistungMenschenrettung">TH mit Menschenrettung:</label>
+            <br>
+            <div class="technischeHilfeleistungMenschenrettungAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungTueroeffnung" class="technischeHilfeleistungMenschenrettungTueroeffnung einsatztypAbstand">
+                <label for="technischeHilfeleistungMenschenrettungTueroeffnung" class="technischeHilfeleistungAbstandLabel">Türöffnung</label>
+                <div class="technischeHilfeleistungMenschenrettungAbstandPunkte">
+                    <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonInAufzug" class="technischeHilfeleistungMenschenrettungPersonInAufzug einsatztypAbstand">
+                    <label for="technischeHilfeleistungMenschenrettungPersonInAufzug">Person in Aufzug</label>
+                </div>
+            </div>
+            <div class="technischeHilfeleistungMenschenrettungAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungVerkehrsunfall" class="technischeHilfeleistungMenschenrettungVerkehrsunfall einsatztypAbstand">
+                <label for="technischeHilfeleistungMenschenrettungVerkehrsunfall" class="technischeHilfeleistungAbstandLabel">Verkehrsunfall</label>
+                <div class="technischeHilfeleistungMenschenrettungAbstandPunkte">
+                    <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonInWasser" class="technischeHilfeleistungMenschenrettungPersonInWasser einsatztypAbstand">
+                    <label for="technischeHilfeleistungMenschenrettungPersonInWasser" class="technischeHilfeleistungAbstandLabel">Person in Wasser</label>
+                </div>
+            </div>
+            <div class="technischeHilfeleistungMenschenrettungAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungBauunfall" class="technischeHilfeleistungMenschenrettungBauunfall einsatztypAbstand">
+                <label for="technischeHilfeleistungMenschenrettungBauunfall" class="technischeHilfeleistungAbstandLabel">Bauunfall</label>
+                <div class="technischeHilfeleistungMenschenrettungAbstandPunkte">
+                    <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="technischeHilfeleistungMenschenrettungPersonWillSpringen einsatztypAbstand">
+                    <label for="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="technischeHilfeleistungAbstandLabel">Person will springen</label>
+                </div>
+            </div>
+            <div class="technischeHilfeleistungMenschenrettungAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungRettungUeberDL" class="technischeHilfeleistungMenschenrettungRettungUeberDL einsatztypAbstand">
+                <label for="technischeHilfeleistungMenschenrettungRettungUeberDL" class="technischeHilfeleistungAbstandLabel">Rettung über DL</label>
+                <div class="technischeHilfeleistungMenschenrettungAbstandPunkte">
+                    <input type="text" id="technischeHilfeleistungMenschenrettungSonstiges" class="technischeHilfeleistungMenschenrettungSonstiges einsatztypAbstand" placeholder="Sonstiges">
+                </div>
+            </div>
+            <input type="checkbox" id="technischeHilfeleistungMitGefahrstoffe" class="technischeHilfeleistungMitGefahrstoffe einsatztypAbstand">
+            <label for="technischeHilfeleistungMitGefahrstoffe" class="technischeHilfeleistungAbstandLabel">TH mit Gefahrstoffe</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungOelspur" class="technischeHilfeleistungOelspur einsatztypAbstand">
+            <label for="technischeHilfeleistungOelspur" class="technischeHilfeleistungAbstandLabel">TH Ölspur</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungTierrettung" class="technischeHilfeleistungTierrettung einsatztypAbstand">
+            <label for="technischeHilfeleistungTierrettung" class="technischeHilfeleistungAbstandLabel">TH Tierrettung</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungInsekten" class="technischeHilfeleistungInsekten einsatztypAbstand">
+            <label for="technischeHilfeleistungInsekten" class="technischeHilfeleistungAbstandLabel">TH Insekten</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungHochwasserOderUnwetter" class="technischeHilfeleistungHochwasserOderUnwetter einsatztypAbstand">
+            <label for="technischeHilfeleistungHochwasserOderUnwetter" class="technischeHilfeleistungAbstandLabel">TH Hochwasser / Unwetter</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungStrum" class="technischeHilfeleistungStrum einsatztypAbstand">
+            <label for="technischeHilfeleistungStrum" class="technischeHilfeleistungAbstandLabel">TH Sturm</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungSonstiges" class="technischeHilfeleistungSonstiges einsatztypAbstand">
+            <label for="technischeHilfeleistungSonstiges" class="technischeHilfeleistungAbstandLabel">TH Sonstiges</label>
+            <br>
+            <input type="checkbox" id="technischeHilfeleistungUeberlandhilfe" class="technischeHilfeleistungUeberlandhilfe einsatztypAbstand">
+            <label for="technischeHilfeleistungUeberlandhilfe" class="technischeHilfeleistungAbstandLabel">Überlandhilfe TH</label>
+            <br>
+        </div>
+        <div id="anzeigeTypSonstiges" hidden>
+            <input type="textbox" id="einsatzTypSonstiges" class="einsatzTypSonstiges" placeholder="Sonstiges">
         </div>
     </body>
 </html>

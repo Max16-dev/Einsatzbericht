@@ -35,6 +35,11 @@ body{
     margin-left: 14px;
 }
 
+.alarmAbstand{
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
 .abschnittAlarmArt{
     margin-top: 60px;
     float: left;
@@ -68,4 +73,47 @@ body{
 
 .einsatztypAbstand{
     margin-top: 10px;
+}
+
+.einsatztypAbstandGross{
+    margin-top: 30px;
+}
+
+.brandBlinderAlarmRauchwarnmelder{
+    margin-left: 20px;
+}
+
+.brandHeader {
+    margin-bottom: 10px;
+}
+
+.brandBMAHeader{
+    margin-bottom: 5px;
+}
+
+.technischeHilfeleistungHeader{
+    margin-bottom: 5px;
+}
+
+.technischeHilfeleistungMenschenrettungAbstand{
+    margin-left: 50px;
+    display: flex;
+}
+
+.technischeHilfeleistungMenschenrettungAbstandPunkte{
+    margin-left: 15px;
+}
+
+.technischeHilfeleistungAbstandLabel{
+    margin-top: 9px;
+}
+
+.technischeHilfeleistungMenschenrettungSonstiges{
+    margin-left: 20px;
+}
+
+.einsatzTypSonstiges{
+    margin-top: 20px;
+    height: auto;
+    width: 500px;
 }
