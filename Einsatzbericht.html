@@ -4,7 +4,8 @@
         <title>Einsatzbericht FWN</title>
         <script src="Einsatzbericht.js"></script>
         <link rel="stylesheet" href="Einsatzbericht.css">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
     </head>
     <body>
         <h2>Einsatzbericht</h2>
@@ -243,7 +244,7 @@
             <label for="NameUndAnschriftVerursacherOderGeschaedigtenOrt">Ort:</label>
             <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenOrt" class="NameUndAnschriftVerursacherOderGeschaedigtenOrt einsatztypAbstand">
         </div>
-        <div class="GeretteteMenschen">
+        <div class="GeretteteMenschen" id="GeretteteMenschen">
             <h4 class="GeretteteMenschenHeader">Gerettete Menschen (nur im Stadtgebiet): </h4>
             <div>
                 <input type="checkbox" id="GeretteteMenschenBrand" class="GeretteteMenschenBrand">
@@ -287,11 +288,29 @@
         <div class="BerichtVerlaufEinsatzesUndLoeschOderHilfeleistungsmaßnahmen">
             <div class="WasHatGebranntMitObjektUndLageBereich">
                 <h4>a) Was hat gebrannt, mit den Angaben des betroffenen Objekts / Lage bei Eintreffen: </h4>
-                <textarea id="WasHatGebranntMitObjektUndLage" class="WasHatGebranntMitObjektUndLage"></textarea>
+                <input type="checkbox" id="addTextBMAMelder" class="addTextBMAMelder" onclick="TextBetreffenenObjekt()">
+                <label for="addTextBMAMelder">Text BMA Melder</label>
+                <br>
+                <textarea id="WasHatGebranntMitObjektUndLage" class="WasHatGebranntMitObjektUndLage einsatztypAbstand"></textarea>
             </div>
             <div class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterBereich">
                 <h4>b) Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter (Anzahl): </h4>
-                <textarea id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter" class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter"></textarea>
+                <input type="checkbox" id="addTextBMAErkundung" class="addTextBMAErkundung" onclick="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter()">
+                <label for="addTextBMAErkundung">Text BMA Erkundung Fehlalarm</label>
+                <br>
+                <input type="checkbox" id="addTextBMAAusloesungBauarbeiten" class="addTextBMAAusloesungBauarbeiten einsatztypAbstand" onclick="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter()">
+                <label for="addTextBMAAusloesungBauarbeiten">Text BMA Auslösung Bauarbeiten</label>
+                <br>
+                <input type="checkbox" id="addTextBMAAusloesungNichtErsichtlich" class="addTextBMAAusloesungNichtErsichtlich einsatztypAbstand" onclick="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter()">
+                <label for="addTextBMAAusloesungNichtErsichtlich">Text BMA Auslösung nicht ersichtlich</label>
+                <br>
+                <input type="checkbox" id="addTextBMABetreiberAusserBetrieb" class="addTextBMABetreiberAusserBetrieb einsatztypAbstand" onclick="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter()">
+                <label for="addTextBMABetreiberAusserBetrieb">Text BMA Betreiber außer Betrieb</label>
+                <br>
+                <input type="checkbox" id="addTextBMAFeuerwehrZurueckgestellt" class="addTextBMABetreiberAusserBetrieb einsatztypAbstand" onclick="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter()">
+                <label for="addTextBMABetreiberAusserBetrieb">Text BMA Feuerwehr vor Ort zurückgestellt</label>
+                <br>
+                <textarea id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter" class="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter einsatztypAbstand"></textarea>
             </div>
         </div>
         <div class="EntstehungsursacheBereich">
@@ -345,5 +364,9 @@
             <p><b>Bei Fragen zum Einsatzbericht bitte an wenden: </b></p>
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
+        <div >
+            <p id="testPDF">Test PDF</p>
+        </div>
+        <button onclick="TestPDF()">PDF</button>
     </body>
 </html>
