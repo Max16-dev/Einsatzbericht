@@ -403,6 +403,7 @@ function UebersichtErstellen(){
     SetAlarmzeit();
     SetDatum();
     SetAlarmUeber();
+    //SetAlarmArt();
     SetEinsatztyp();
     SetArtEinsatzstelle();
     SetLageEinsatzstelle();
@@ -410,11 +411,13 @@ function UebersichtErstellen(){
     SetGeretteteMenschen();
     SetToteMenschen();
     SetTierrettung();
-    /*SetWasHatGebranntMitObjektUndLageBereich();
+    SetWasHatGebranntMitObjektUndLageBereich();
     SetTaetigkeitDerFeuerwehrMitBehandlungVerunglueckter();
+    SetEntstehungsursache();
+    SetBesondereVorkommnisseEinsatzstelle
     SetVorOt();
     SetVerbrauchtesMaterial();
-    SetFragenZumEinsatzbreicht();*/
+    SetFragenZumEinsatzbreicht();
 }
 
 function SetAlarmzeit(){
@@ -447,6 +450,23 @@ function SetAlarmUeber(){
         alarmArtUeberAuswertung.textContent = "Telefon";
     }
     
+}
+
+function SerAlarmUeber(){
+    var alarmArtVollalarm = document.getElementById("alarmArtVollalarm").checked;
+    var alarmArtKleinschleife = document.getElementById("alarmArtKleinschleife").checked;
+    var alarmArtSonstiges = document.getElementById("alarmArtSonstiges");
+    var text = document.getElementById("alarmArtAuswertung");
+
+    if(alarmArtVollalarm === true){
+        text.textContent = "Vollalarm";
+    }
+    if(alarmArtKleinschleife === true){
+        text.textContent = "Kleinschleife";
+    }
+    if(alarmArtSonstiges.value != ""){
+        text.textContent = alarmArtSonstiges.value;
+    }
 }
 
 function SetEinsatztyp(){
@@ -666,7 +686,7 @@ function SetLageEinsatzstelle(){
     var lageEinsatzstelleGebaeudeDachgeschoss = document.getElementById("lageEinsatzstelleGebaeudeDachgeschoss").checked;
     var lageEinsatzstelleFreigelaende = document.getElementById("lageEinsatzstelleFreigelaende").checked;
     var lageEinsatzstelleAufDemWasser = document.getElementById("lageEinsatzstelleAufDemWasser").checked;
-    var text = document.getElementById("artEinsatzstelleAuswertung");
+    var text = document.getElementById("lageEinsatzstelleAuswertung");
 
     if(lageEinsatzstelleOrt.value === "Auswählen"){
         text.textContent = lageEinsatzstelleStrasse.value + " " + lageEinsatzstelleOrtUeberlandhilfe.value;
@@ -790,6 +810,110 @@ function SetTierrettung(){
     else{
         text.textContent = "Anzahl Tiere: " + AnzahlTierRettung.value;
     }
+}
+
+function SetWasHatGebranntMitObjektUndLageBereich(){
+    var WasHatGebranntMitObjektUndLage = document.getElementById("WasHatGebranntMitObjektUndLage");
+    var text = document.getElementById("WasHatGebranntMitObjektUndLageBereichAuswertung");
+
+    text.textContent = WasHatGebranntMitObjektUndLage.value;
+}
+
+function SetTaetigkeitDerFeuerwehrMitBehandlungVerunglueckter(){
+    var TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter = document.getElementById("TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter");
+    var text = document.getElementById("TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertung");
+
+    text.textContent = TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter.value;
+}
+
+function SetEntstehungsursache(){
+    var Entstehungsursache = document.getElementById("Entstehungsursache");
+    var text = document.getElementById("entstehungsursacheAuswertung");
+
+    text.textContent = Entstehungsursache.value;
+}
+
+function SetBesondereVorkommnisseEinsatzstelle(){
+    var BesondereVorkommnisseAnDerEinsatzstelle = document.getElementById("BesondereVorkommnisseAnDerEinsatzstelle");
+    var text = document.getElementById("besondereVorkommnisseEinsatzstelleAuswertung");
+
+    text.textContent = BesondereVorkommnisseAnDerEinsatzstelle.value;
+
+}
+
+function SetVorOrt(){
+    var VorOrtKommandant = document.getElementById("VorOrtKommandant").checked;
+    var VorOrtStellvKommandant = document.getElementById("VorOrtStellvKommandant").checked;
+    var VorOrtOberbuegermeister = document.getElementById("VorOrtOberbuegermeister").checked;
+    var VorOrtOrtsvorsteher = document.getElementById("VorOrtOrtsvorsteher").checked;    
+    var VorOrtKBM = document.getElementById("VorOrtKBM").checked;
+    var VorOrtNotarzt = document.getElementById("VorOrtNotarzt").checked;
+    var VorOrtRettungsdienst = document.getElementById("VorOrtRettungsdienst").checked;
+    var VorOrtSanitaetsdienst = document.getElementById("VorOrtSanitaetsdienst").checked;
+    var VorOrtPolizei = document.getElementById("VorOrtPolizei").checked;    
+    var VorOrtTHW = document.getElementById("VorOrtTHW").checked;
+    var VorOrtSonstiges = document.getElementById("VorOrtSonstiges");
+    var text = document.getElementById("vorOrtAuswertung");
+    var textAusgabe = [];
+    
+        if(VorOrtKommandant === true){
+            textAusgabe.push("Kommandant");
+        }
+        if(VorOrtStellvKommandant === true){
+            textAusgabe.push("Stellv. Kommandant")
+        }
+        if(VorOrtOberbuegermeister === true){
+            textAusgabe.push("Oberbürgermeister");
+        }
+        if(VorOrtOrtsvorsteher === true){
+            textAusgabe.push("Ortvorsteher");
+        }
+        if(VorOrtKBM === true){
+            textAusgabe.push("KBM");
+        }
+        if(VorOrtNotarzt === true){
+            textAusgabe.push("Notarzt");
+        }
+        if(VorOrtRettungsdienst === true){
+            textAusgabe.push("Rettungsdienst");
+        }
+        if(VorOrtSanitaetsdienst === true){
+            textAusgabe.push("Sanitätsdienst");
+        }
+        if(VorOrtPolizei === true){
+            textAusgabe.push("Polizei");
+        }
+        if(VorOrtTHW === true){
+            textAusgabe.push("THW");
+        }
+        if(VorOrtSonstiges.value !== ""){
+            textAusgabe.push(VorOrtSonstiges.value);
+        }
+
+    if(textAusgabe.length <= 1){
+        text.textContent = textAusgabe[0];
+    }
+    else{
+        linebreak = document.createElement("br");
+        textAusgabe.forEach(element => {
+            text.textContent += " " + element;
+        });
+        
+    }
+}
+
+function SetVerbrauchtesMaterial(){
+    var VerbrauchtesMaterial = document.getElementById("VerbrauchtesMaterial");
+    var text = document.getElementById("verbrauchtesMaterialAuswertung");
+
+    text.textContent = VerbrauchtesMaterial;
+}
+
+function SetFragenZumEinsatzbreicht(){
+    var FragenZumEinsatzBericht = document.getElementById("FragenZumEinsatzBericht");
+    var text = document.getElementById("FragenZumEinsatzBerichtAuswertung");
+
+    text.textContent = FragenZumEinsatzBericht;
 }
 
 function createPDF(){

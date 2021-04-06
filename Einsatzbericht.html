@@ -379,7 +379,7 @@
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
         <div>
-            <button id="erstellenUebersicht" onclick="SetTierrettung()" class="erstellenUebersicht">Übersicht erstellen</button>
+            <button id="erstellenUebersicht" onclick="erstellenUebersichtMitValidierung()" class="erstellenUebersicht">Übersicht erstellen</button>
         </div>
         <div>
             <p id="invalideEingabe" class="invalideEingabe"></p>
@@ -438,9 +438,17 @@
                 <h4>Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter: </h4>
                 <p class="AuswertungText" id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertung">Test</p>
             </div>
+            <div class="AuswertungDiv" id="entstehungsursacheAuswertungDiv">
+                <h4>Entstehungsursache: </h4>
+                <p class="AuswertungText" id="entstehungsursacheAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="besondereVorkommnisseEinsatzstelleAuswertungDiv">
+                <h4>Besondere Vorkommnisse an der Einsatzstelle: </h4>
+                <p class="AuswertungText" id="besondereVorkommnisseEinsatzstelleAuswertung">Test</p>
+            </div>
             <div class="AuswertungDiv" id="vorOrtAuswertungDiv">
                 <h4>Vor Ort: </h4>
-                <p class="AuswertungText" id="vorOrtAuswertungAuswertung">Test</p>
+                <p class="AuswertungText" id="vorOrtAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="verbrauchtesMaterialAuswertungDiv">
                 <h4>Verbrauchtes Material: </h4>
