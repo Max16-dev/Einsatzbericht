@@ -2,6 +2,11 @@ window.onload = function() {
     document.getElementById("TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter").value = "\n" + "Einsatzende";
 }
 
+var ValidierungEinsatzTypBrandStatus;
+var ValidierungEinsatzTypBrandmeldeanlageStatus;
+var ValidierungEinsatzTypTechnischeHilfeleistungStatus;
+var ValidierungEinsatzTypSonstigesStatus;
+
 function changeEinsatzTyp(){
     var selectElement = document.getElementById("einsatzArt").value;
     var anzeigeTypBrand = document.getElementById("anzeigeTypBrand");
@@ -186,10 +191,10 @@ function ValidierungAlarmArt(){
 
 function ValidierungEinsatzTyp(){
     var fehlerText = document.getElementById("invalideEingabe");
-    var ValidierungEinsatzTypBrandStatus = ValidierungEinsatzTypBrand();
-    var ValidierungEinsatzTypBrandmeldeanlageStatus = ValidierungEinsatzTypBrandmeldeanlage();
-    var ValidierungEinsatzTypTechnischeHilfeleistungStatus = ValidierungEinsatzTypTechnischeHilfeleistung();
-    var ValidierungEinsatzTypSonstigesStatus = ValidierungEinsatzTypSonstiges();
+    ValidierungEinsatzTypBrandStatus = ValidierungEinsatzTypBrand();
+    ValidierungEinsatzTypBrandmeldeanlageStatus = ValidierungEinsatzTypBrandmeldeanlage();
+    ValidierungEinsatzTypTechnischeHilfeleistungStatus = ValidierungEinsatzTypTechnischeHilfeleistung();
+    ValidierungEinsatzTypSonstigesStatus = ValidierungEinsatzTypSonstiges();
 
     if(ValidierungEinsatzTypBrandStatus === 1 && ValidierungEinsatzTypBrandmeldeanlageStatus === 1 && ValidierungEinsatzTypTechnischeHilfeleistungStatus === 1 &&
         ValidierungEinsatzTypSonstigesStatus === 1){
@@ -229,10 +234,9 @@ function ValidierungEinsatzTypBrandmeldeanlage(){
     var brandMittelbrand = document.getElementById("brandMittelbrandBMA");
     var brandGrossbrand = document.getElementById("brandGrossbrandBMA");
     var brandÜberlandhilfeBrand = document.getElementById("brandÜberlandhilfeBrandBMA");
-    var brandBlinderAlarm = document.getElementById("BMAFehlalarm");
 
     if(brandKleinbrandA.checked === false && brandKleinbrandB.checked === false && brandMittelbrand.checked === false && brandGrossbrand.checked === false
-        && brandÜberlandhilfeBrand.checked === false && brandBlinderAlarm.checked === false){
+         && brandBlinderAlarm.checked === false){
         return 1;
     }
 
@@ -291,10 +295,10 @@ function ValidierungArtEinsatzstelle(){
         && artEinsatzstelleGastwirtschaftsbetrieb.checked === false && artEinsatzstelleLandwirtschaftlicherBetrieb.checked === false
         && artEinsatzstelleWald.checked === false && artEinsatzstelleSonstiges.value === ""){
         if(fehlerText.textContent === ""){
-            fehlerText.textContent += "Keine Auswahl bei \"Einsatzstelle\" getroffen";
+            fehlerText.textContent += "Keine Auswahl bei \"Art der Einsatzstelle\" getroffen";
         }
         else{
-            fehlerText.textContent += ";" + " Keine Auswahl bei \"Einsatzstelle\" getroffen";
+            fehlerText.textContent += ";" + " Keine Auswahl bei \"Art der Einsatzstelle\" getroffen";
         }
         return 1;
     }
@@ -396,11 +400,11 @@ function ValidierungFragenEinsatzbericht(){
 }
 
 function UebersichtErstellen(){
-    /*SetAlarmzeit();
+    SetAlarmzeit();
     SetDatum();
     SetAlarmUeber();
     SetEinsatztyp();
-    SetArtEinsatzstelle();
+    /*SetArtEinsatzstelle();
     SetLageEinsatzstelle();
     SetNameAnschriftVerursacherGeschaedigten();
     SetGeretteteMenschen();
@@ -413,11 +417,192 @@ function UebersichtErstellen(){
     SetFragenZumEinsatzbreicht();*/
 }
 
+function SetAlarmzeit(){
+    var alarmZeit = document.getElementById("alarmzeitStunden");
+    var setAlarmzeit = document.getElementById("alarmzeitAuswertung");
+
+    setAlarmzeit.textContent = alarmZeit.value;
+}
+
+function SetDatum(){
+    var datum = document.getElementById("alarmzeitDate");
+    var setDatumt = document.getElementById("alarmDatumAuswertung");
+
+    datum = new Date(datum.value);
+    datumDate = datum.getDate();
+    datumMonth = datum.getMonth() + 1;
+    datumYear = datum.getFullYear();
+    ausgabeDatum = datumDate + "." + datumMonth + "." + datumYear;
+    setDatumt.textContent = ausgabeDatum;
+}
+
+function SetAlarmUeber(){
+    var alarmUeberLeitstelle = document.getElementById("alarmUeberLeitstelle").checked;
+    var alarmArtUeberAuswertung = document.getElementById("alarmArtUeberAuswertung");
+
+    if(alarmUeberLeitstelle === true){
+        alarmArtUeberAuswertung.textContent = "Leistelle";
+    }
+    else{
+        alarmArtUeberAuswertung.textContent = "Telefon";
+    }
+    
+}
+
+function SetEinsatztyp(){
+    ValidierungEinsatzTyp();
+    if(ValidierungEinsatzTypBrandStatus === 0){
+        SetEinsatztypBrand();
+    }
+    if(ValidierungEinsatzTypBrandmeldeanlageStatus === 0){
+        SetEinsatztypBrandmeldeanlage();
+    }
+    if(ValidierungEinsatzTypTechnischeHilfeleistungStatus === 0){
+        SetEinsatztypTechnischeHilfeleistung();
+    }
+    if(ValidierungEinsatzTypSonstigesStatus === 0){
+        SetEinsatztypSonstiges();
+    }
+}
+
+function SetEinsatztypSonstiges(){
+    var eingabe = document.getElementById("einsatzTypSonstiges");
+    var text = document.getElementById("einsatztypAuswertung");
+
+    text.textContent = eingabe.value;
+}
+
+function SetEinsatztypTechnischeHilfeleistung(){
+    var technischeHilfeleistungMenschenrettungTueroeffnung = document.getElementById("technischeHilfeleistungMenschenrettungTueroeffnung").checked;
+    var technischeHilfeleistungMenschenrettungPersonInAufzug = document.getElementById("technischeHilfeleistungMenschenrettungPersonInAufzug").checked;
+    var technischeHilfeleistungMenschenrettungVerkehrsunfall = document.getElementById("technischeHilfeleistungMenschenrettungVerkehrsunfall").checked;
+    var technischeHilfeleistungMenschenrettungPersonInWasser = document.getElementById("technischeHilfeleistungMenschenrettungPersonInWasser").checked;
+    var technischeHilfeleistungMenschenrettungBauunfall = document.getElementById("technischeHilfeleistungMenschenrettungBauunfall").checked;
+    var technischeHilfeleistungMenschenrettungPersonWillSpringen = document.getElementById("technischeHilfeleistungMenschenrettungPersonWillSpringen").checked;
+    var technischeHilfeleistungMenschenrettungRettungUeberDL = document.getElementById("technischeHilfeleistungMenschenrettungRettungUeberDL").checked;
+    var technischeHilfeleistungMitGefahrstoffe = document.getElementById("technischeHilfeleistungMitGefahrstoffe").checked;
+    var technischeHilfeleistungOelspur = document.getElementById("technischeHilfeleistungOelspur").checked;
+    var technischeHilfeleistungTierrettung = document.getElementById("technischeHilfeleistungTierrettung").checked;
+    var technischeHilfeleistungInsekten = document.getElementById("technischeHilfeleistungInsekten").checked;
+    var technischeHilfeleistungStrum = document.getElementById("technischeHilfeleistungStrum").checked;
+    var technischeHilfeleistungSonstiges = document.getElementById("technischeHilfeleistungSonstiges").checked;
+    var technischeHilfeleistungUeberlandhilfe = document.getElementById("technischeHilfeleistungUeberlandhilfe").checked;
+    var text = document.getElementById("einsatztypAuswertung");
 
 
+    if(technischeHilfeleistungMenschenrettungTueroeffnung === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Türöffnung";
+    }
+    if(technischeHilfeleistungMenschenrettungPersonInAufzug === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Person in Aufzug";
+    }
+    if(technischeHilfeleistungMenschenrettungVerkehrsunfall === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Verkehrunfall";
+    }
+    if(technischeHilfeleistungMenschenrettungPersonInWasser === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Person in Wasser";
+    }
+    if(technischeHilfeleistungMenschenrettungBauunfall === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Bauunfall";
+    }
+    if(technischeHilfeleistungMenschenrettungPersonWillSpringen === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Person will springen";
+    }
+    if(technischeHilfeleistungMenschenrettungRettungUeberDL === true){
+        text.textContent = "Technische Hilfe mit Menschenrettung: Rettung über DL";
+    }
+    if(technischeHilfeleistungMitGefahrstoffe === true){
+        text.textContent = "Technische Hilfe mit Gefahrstoffe";
+    }
+    if(technischeHilfeleistungOelspur === true){
+        text.textContent = "Technische Hilfe Ölspur";
+    }
+    if(technischeHilfeleistungTierrettung === true){
+        text.textContent = "Technische Hilfe Tierrettung";
+    }
+    if(technischeHilfeleistungInsekten === true){
+        text.textContent = "Technische Hilfe Insekten";
+    }
+    if(technischeHilfeleistungStrum === true){
+        text.textContent = "Technische Hilfe Hochwasser / Unwetter";
+    }
+    if(technischeHilfeleistungSonstiges === true){
+        text.textContent = "Technische Hilfe Sonstiges";
+    }
+    if(technischeHilfeleistungUeberlandhilfe === true){
+        text.textContent = "Technische Hilfe Überlandhilfe";
+    }
+}
 
+function SetEinsatztypBrandmeldeanlage(){
+    var brandKleinbrandA = document.getElementById("brandKleinbrandABMA").checked;
+    var brandKleinbrandB = document.getElementById("brandKleinbrandBBMA").checked;
+    var brandMittelbrand = document.getElementById("brandMittelbrandBMA").checked;
+    var brandGrossbrand = document.getElementById("brandGrossbrandBMA").checked;
+    var BMAFehlalarmTaeuschungsalarm = document.getElementById("BMAFehlalarmTaeuschungsalarm").checked;
+    var BMAFehlalarmTechnischerFehlalarm = document.getElementById("BMAFehlalarmTechnischerFehlalarm").checked;
+    var BMAFehlalarmBoeswilligerAlarm = document.getElementById("BMAFehlalarmBoeswilligerAlarm").checked;
+    var text = document.getElementById("einsatztypAuswertung");
 
+    if(brandKleinbrandA === true){
+        text.textContent = "Kleinbrand A BMA";
+    }
+    if(brandKleinbrandB === true){
+        text.textContent = "Kleinbrand B BMA";
+    }
+    if(brandMittelbrand === true){
+        text.textContent = "Mittelbrand BMA";
+    }
+    if(brandGrossbrand === true){
+        text.textContent = "Großbrand BMA";
+    }
+    if(BMAFehlalarmTaeuschungsalarm === true){
+        text.textContent = "Täuschungsalarm BMA";
+    }
+    if(BMAFehlalarmTechnischerFehlalarm === true){
+        text.textContent = "Technischer Fehlalarm BMA";
+    }
+    if(BMAFehlalarmBoeswilligerAlarm === true){
+        text.textContent += "Böswilliger Alarm";
+    }
+}
 
+function SetEinsatztypBrand(){
+    var brandKleinbrandA = document.getElementById("brandKleinbrandA").checked;
+    var brandKleinbrandB = document.getElementById("brandKleinbrandB").checked;
+    var brandMittelbrand = document.getElementById("brandMittelbrand").checked;
+    var brandGrossbrand = document.getElementById("brandGrossbrand").checked;
+    var brandÜberlandhilfeBrand = document.getAnimations("brandÜberlandhilfeBrand").checked;
+    var brandBlinderAlarm = document.getElementById("brandBlinderAlarm").checked;
+    var brandBlinderAlarmRauchwarnmelder = document.getElementById("brandBlinderAlarmRauchwarnmelder").checked;
+    var brandBoeswilligerAlarm = document.getElementById("brandBoeswilligerAlarm").checked;
+    var text = document.getElementById("einsatztypAuswertung");
+
+    if(brandKleinbrandA === true){
+        text.textContent = "Kleinbrand A";
+    }
+    if(brandKleinbrandB === true){
+        text.textContent = "Kleinbrand B";
+    }
+    if(brandMittelbrand === true){
+        text.textContent = "Mittelbrand";
+    }
+    if(brandGrossbrand === true){
+        text.textContent = "Großbrand";
+    }
+    if(brandÜberlandhilfeBrand === true){
+        text.textContent = "Überlandhilfe Brand";
+    }
+    if(brandBlinderAlarm === true){
+        text.textContent = "Blinder Alarm";
+    }
+    if(brandBlinderAlarmRauchwarnmelder === true){
+        text.textContent += " (Rauchwarnmelder)";
+    }
+    if(brandBoeswilligerAlarm === true){
+        text.textContent = "Böswilliger Alarm";
+    }
+}
 
 function createPDF(){
     var pdfDoc = html2pdf().from(text).save();

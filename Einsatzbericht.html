@@ -91,9 +91,6 @@
             <input type="checkbox" id="brandGrossbrandBMA" class="brandGrossbrandBMA einsatztypAbstand">
             <label for="brandGrossbrandBMA">Großbrand: ab 4 Rohre (BMA)</label>
             <br>
-            <input type="checkbox" id="brandÜberlandhilfeBrandBMA" class="brandÜberlandhilfeBrandBMA einsatztypAbstand">
-            <label for="brandÜberlandhilfeBrandBMA">Überlandhilfe Brand (BMA)</label>
-            <br>
             <input type="checkbox" id="BMAFehlalarm" class="BMAFehlalarm einsatztypAbstandGross">
             <label for="BMAFehlalarm">BMA Fehlalarm: </label>
             <div class="BMAFehlalarmPunkte">
@@ -381,7 +378,7 @@
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
         <div>
-            <button id="erstellenUebersicht" onclick="erstellenUebersichtMitValidierung()" class="erstellenUebersicht">Übersicht erstellen</button>
+            <button id="erstellenUebersicht" onclick="SetEinsatztyp()" class="erstellenUebersicht">Übersicht erstellen</button>
         </div>
         <div>
             <p id="invalideEingabe" class="invalideEingabe"></p>
