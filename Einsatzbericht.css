@@ -248,3 +248,26 @@ body{
 .FragenZumEinsatzBericht{
     width: 350px;
 }
+
+.erstellenUebersicht{
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.invalideEingabe{
+    color: red;
+}
+
+.BMAFehlalarmPunkte{
+    margin-left: 20px;
+}
+
+.AuswertungDiv{
+    display: flex;
+    margin-bottom: -18px;
+}
+
+.AuswertungText{
+    margin-left: 11px;
+    margin-top: 22px;
+}
