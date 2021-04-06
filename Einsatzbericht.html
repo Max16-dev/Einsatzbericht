@@ -224,14 +224,14 @@
                 <div class="lageEinsatzstelleGebaeudeInhalt">
                     <input type="checkbox" id="lageEinsatzstelleGebaeudeUntergeschoss" class="lageEinsatzstelleGebaeudeUntergeschoss">
                     <label for="lageEinsatzstelleGebaeudeUntergeschossAnzahl">Untergeschoss</label>
-                    <input type="number" id="lageEinsatzstelleGebaeudeUntergeschossAnzahl" class="lageEinsatzstelleGebaeudeAnzahl">
+                    <input type="number" id="lageEinsatzstelleGebaeudeUntergeschossAnzahl" class="lageEinsatzstelleGebaeudeAnzahl" min="0">
                     <br>
                     <input type="checkbox" id="lageEinsatzstelleGebaeudeErdgeschoss" class="lageEinsatzstelleGebaeudeErdgeschoss einsatztypAbstand">
                     <label for="lageEinsatzstelleGebaeudeErdgeschoss" class="einsatztypAbstand">Erdgeschoss</label>
                     <br>
                     <input type="checkbox" id="lageEinsatzstelleGebaeudeObergeschoss" class="lageEinsatzstelleGebaeudeObergeschoss einsatztypAbstand">
                     <label for="lageEinsatzstelleGebaeudeObergeschoss">Obergeschoss</label>
-                    <input type="number" id="lageEinsatzstelleGebaeudeObergeschoss" class="lageEinsatzstelleGebaeudeAnzahl">
+                    <input type="number" id="lageEinsatzstelleGebaeudeObergeschossAnzahl" class="lageEinsatzstelleGebaeudeAnzahl" min="0">
                     <br>
                     <input type="checkbox" id="lageEinsatzstelleGebaeudeDachgeschoss" class="lageEinsatzstelleGebaeudeDachgeschoss einsatztypAbstand">
                     <label for="lageEinsatzstelleGebaeudeDachgeschoss" class="einsatztypAbstand">Dachgeschoss</label>
@@ -262,40 +262,41 @@
             <div>
                 <input type="checkbox" id="GeretteteMenschenBrand" class="GeretteteMenschenBrand">
                 <label for="GeretteteMenschenBrand">Bei Bränden: </label>
-                <input type="number" id="GeretteteMenschenBrandAnzahl" class="MenschenAnzahlNummer">
+                <input type="number" id="GeretteteMenschenBrandAnzahl" class="MenschenAnzahlNummer" min="0" value="0">
                 <div class="GeretteteMenschenBrandAnzahl">
                     <label for="GeretteteMenschenBrandAnzahlFahrzeugbraende">- davon Fahrzeugbrände: </label>
-                    <input type="number" id="GeretteteMenschenBrandAnzahlFahrzeugbraende" class="MenschenAnzahlNummer">
+                    <input type="number" id="GeretteteMenschenBrandAnzahlFahrzeugbraende" class="MenschenAnzahlNummer" min="0" value="0">
                     <br>
                     <label for="GeretteteMenschenBrandAnzahlMitRauchgasintoxikation">- davon mit Rauchgasintoxikation: </label>
-                    <input type="number" id="GeretteteMenschenBrandAnzahlMitRauchgasintoxikation" class="MenschenAnzahlNummer">
+                    <input type="number" id="GeretteteMenschenBrandAnzahlMitRauchgasintoxikation" class="MenschenAnzahlNummer" min="0" value="0">
                 </div>
                 <label for="GeretteteMenschenTechnischeHilfe">Bei Technische Hilfe: </label>
-                <input type="number" id="GeretteteMenschenTechnischeHilfe" class="MenschenAnzahlNummer">
+                <input type="number" id="GeretteteMenschenTechnischeHilfe" class="MenschenAnzahlNummer" min="0" value="0">
             </div>
         </div>
             <h4>Tote (nur im Stadtgebiet): </h4>
             <div>
-                <input type="checkbox" id="ToteMenschenBrand" class="GeretteteMenschenBrand">
+                <input type="checkbox" id="ToteMenschenBrandCheck" class="GeretteteMenschenBrand">
                 <label for="ToteMenschenBrand">Bei Bränden: </label>
-                <input type="number" id="ToteMenschenBrand" class="MenschenAnzahlNummer">
+                <input type="number" id="ToteMenschenBrand" class="MenschenAnzahlNummer" min="0" value="0">
                 <div class="ToteMenschenBrandAnzahl">
                     <label for="ToteMenschenBrandAnzahlFahrzeugbraende">- davon Fahrzeugbrände: </label>
-                    <input type="number" id="ToteMenschenBrandAnzahlFahrzeugbraende" class="MenschenAnzahlNummer">
+                    <input type="number" id="ToteMenschenBrandAnzahlFahrzeugbraende" class="MenschenAnzahlNummer" min="0" value="0">
                 </div>
                 <div class="ToteMenschenTechnischeHilfeAnzahl">
+                    <input type="checkbox" id="ToteMenschenTechnischeHilfeCheck" class="ToteMenschenTechnischeHilfe">
                     <label for="ToteMenschenTechnischeHilfe">Bei Technische Hilfe: </label>
-                    <input type="number" id="ToteMenschenTechnischeHilfe" class="MenschenAnzahlNummer">
+                    <input type="number" id="ToteMenschenTechnischeHilfe" class="MenschenAnzahlNummer" min="0" value="0">
                     <div class="ToteMenschenTechnischeHilfeleistungAnzahl">
-                        <label for="ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle">- davon Fahrzeugbrände: </label>
-                        <input type="number" id="ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle" class="MenschenAnzahlNummer">
+                        <label for="ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle">- davon Vekehrunfälle: </label>
+                        <input type="number" id="ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle" class="MenschenAnzahlNummer" min="0" value="0">
                     </div>
                 </div>
             </div>
         <div class="TierRettung">
               <div>
                   <label for="AnzahlTierRettung"><h4>Tier-Rettung: </h4></label>
-                  <input type="number" id="AnzahlTierRettung" class="TierRettungAnzahl">
+                  <input type="number" id="AnzahlTierRettung" class="TierRettungAnzahl" min="0" value="0">
               </div>
         </div>
         <div class="BerichtVerlaufEinsatzesUndLoeschOderHilfeleistungsmaßnahmen">
@@ -378,13 +379,13 @@
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
         <div>
-            <button id="erstellenUebersicht" onclick="SetEinsatztyp()" class="erstellenUebersicht">Übersicht erstellen</button>
+            <button id="erstellenUebersicht" onclick="SetTierrettung()" class="erstellenUebersicht">Übersicht erstellen</button>
         </div>
         <div>
             <p id="invalideEingabe" class="invalideEingabe"></p>
         </div>
-        <div id="uebersicht" class="uebersicht">
-            <h3>Übersicht: </h3>
+        <div id="uebersicht" class="uebersicht" >
+            <h3 >Übersicht: </h3>
             <div class="AuswertungDiv">
                 <h4>Alarmzeit: </h4>
                 <p class="AuswertungText" id="alarmzeitAuswertung">Test</p>
@@ -413,20 +414,20 @@
                 <h4>Lage der Einsatzstelle: </h4>
                 <p class="AuswertungText" id="lageEinsatzstelleAuswertung">Test</p>
             </div>
-            <div class="AuswertungDiv" id="ameAnschriftVerursacherGeschaedigtenAuswertungDiv">
+            <div class="AuswertungDiv" id="nameAnschriftVerursacherGeschaedigtenAuswertungDiv">
                 <h4>Name und Anschrift des Verusacher / Geschädigten: </h4>
                 <p class="AuswertungText" id="nameAnschriftVerursacherGeschaedigtenAuswertung">Test</p>
             </div>
-            <div class="AuswertungDiv" id="geretteteMenschenAuswertungDiv">
-                <h4>Gerettete Menschen: </h4>
+            <div class="AuswertungDiv" id="geretteteMenschenAuswertungDiv" >
+                <h4 id="geretteteMenschenAuswertungHeader">Gerettete Menschen: </h4>
                 <p class="AuswertungText" id="geretteteMenschenAuswertung">Test</p>
             </div>
             <div class="AuswertungDiv" id="toteMenschenAuswertungDiv">
-                <h4>Tote Menschen: </h4>
+                <h4 id="toteMenschenAuswertungHeader">Tote Menschen: </h4>
                 <p class="AuswertungText" id="toteMenschenAuswertung">Test</p>
             </div>
             <div class="AuswertungDiv" id="tierrettungAuswertungDiv">
-                <h4>Tierrettung: </h4>
+                <h4 id="tierrettungAuswertungHeader">Tierrettung: </h4>
                 <p class="AuswertungText" id="tierrettungAuswertung">Test</p>
             </div>
             <div class="AuswertungDiv" id="WasHatGebranntMitObjektUndLageBereichAuswertungDiv">

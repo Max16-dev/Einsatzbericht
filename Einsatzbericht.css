@@ -271,3 +271,8 @@ body{
     margin-left: 11px;
     margin-top: 22px;
 }
+
+.abstandEntferntemItem{
+    display: flex;
+    margin-bottom: -3px;
+}

@@ -404,13 +404,13 @@ function UebersichtErstellen(){
     SetDatum();
     SetAlarmUeber();
     SetEinsatztyp();
-    /*SetArtEinsatzstelle();
+    SetArtEinsatzstelle();
     SetLageEinsatzstelle();
     SetNameAnschriftVerursacherGeschaedigten();
     SetGeretteteMenschen();
     SetToteMenschen();
     SetTierrettung();
-    SetWasHatGebranntMitObjektUndLageBereich();
+    /*SetWasHatGebranntMitObjektUndLageBereich();
     SetTaetigkeitDerFeuerwehrMitBehandlungVerunglueckter();
     SetVorOt();
     SetVerbrauchtesMaterial();
@@ -601,6 +601,194 @@ function SetEinsatztypBrand(){
     }
     if(brandBoeswilligerAlarm === true){
         text.textContent = "Böswilliger Alarm";
+    }
+}
+
+function SetArtEinsatzstelle(){
+    var artEinsatzstelleWohngebaeude = document.getElementById("artEinsatzstelleWohngebaeude").checked;
+    var artEinsatzstelleIndustrielleUndGewerblicheBetriebe = document.getElementById("artEinsatzstelleIndustrielleUndGewerblicheBetriebe").checked;
+    var artEinsatzstelleoeffentGebaeudeUndKulturbauten = document.getElementById("artEinsatzstelleoeffentGebaeudeUndKulturbauten").checked;
+    var artEinsatzstelleoeffentSeniorenAltenPfelgeHeim = document.getElementById("artEinsatzstelleoeffentSeniorenAltenPfelgeHeim").checked;
+    var artEinsatzstelleVerkaufsstaette = document.getElementById("artEinsatzstelleVerkaufsstaette").checked;
+    var artEinsatzstelleStrasse = document.getElementById("artEinsatzstelleStrasse").checked;
+    var artEinsatzstelleVersammlungsstaette = document.getElementById("artEinsatzstelleVersammlungsstaette").checked;
+    var artEinsatzstelleGastwirtschaftsbetrieb = document.getElementById("artEinsatzstelleGastwirtschaftsbetrieb").checked;
+    var artEinsatzstelleLandwirtschaftlicherBetrieb = document.getElementById("artEinsatzstelleLandwirtschaftlicherBetrieb").checked;
+    var artEinsatzstelleWald = document.getElementById("artEinsatzstelleWald").checked;
+    var artEinsatzstelleSonstiges = document.getElementById("artEinsatzstelleSonstiges");
+    var text = document.getElementById("einsatztypAuswertung");
+
+    if(artEinsatzstelleWohngebaeude === true){
+        text.textContent = "Wohngebäude";
+    }
+    if(artEinsatzstelleIndustrielleUndGewerblicheBetriebe === true){
+        text.textContent = "Industrielle und gewerbliche Betriebe";
+    }
+    if(artEinsatzstelleoeffentGebaeudeUndKulturbauten === true){
+        text.textContent = "öffentl. Gebäude und Kulturbauten";
+    }
+
+    if(artEinsatzstelleoeffentSeniorenAltenPfelgeHeim === true){
+        text.textContent = "Senioren-/ Alten-/ Pfelgeheim";
+    }
+    if(artEinsatzstelleVerkaufsstaette === true){
+        text.textContent = "Verkaufsstätte";
+    }
+    if(artEinsatzstelleStrasse === true){
+        text.textContent = "Straße (Verkehrsmittel - PKW, LKW, Bahn)";
+    }
+    if(artEinsatzstelleVersammlungsstaette === true){
+        text.textContent = "Versammlungsstätte";
+    }
+    if(artEinsatzstelleGastwirtschaftsbetrieb === true){
+        text.textContent = "Gastwirtschaftsbetrieb";
+    }
+    if(artEinsatzstelleLandwirtschaftlicherBetrieb === true){
+        text.textContent = "Landwirtschaftlicher Betrieb";
+    }
+    if(artEinsatzstelleWald === true){
+        text.textContent = "Wald";
+    }
+    if(artEinsatzstelleSonstiges.value !== ""){
+        text.textContent = artEinsatzstelleSonstiges.value;
+    }
+}
+
+function SetLageEinsatzstelle(){
+    var lageEinsatzstelleStrasse = document.getElementById("lageEinsatzstelleStrasse");
+    var lageEinsatzstelleOrt = document.getElementById("lageEinsatzstelleOrt");
+    var lageEinsatzstelleOrtUeberlandhilfe = document.getElementById("lageEinsatzstelleOrtUeberlandhilfe");
+    var lageEinsatzstelleGebaeudeUntergeschoss = document.getElementById("lageEinsatzstelleGebaeudeUntergeschoss").checked;
+    var lageEinsatzstelleGebaeudeUntergeschossAnzahl = document.getElementById("lageEinsatzstelleGebaeudeUntergeschossAnzahl");
+    var lageEinsatzstelleGebaeudeErdgeschoss = document.getElementById("lageEinsatzstelleGebaeudeErdgeschoss").checked;
+    var lageEinsatzstelleGebaeudeObergeschoss = document.getElementById("lageEinsatzstelleGebaeudeObergeschoss").checked;
+    var lageEinsatzstelleGebaeudeObergeschossAnzahl = document.getElementById("lageEinsatzstelleGebaeudeObergeschossAnzahl");
+    var lageEinsatzstelleGebaeudeDachgeschoss = document.getElementById("lageEinsatzstelleGebaeudeDachgeschoss").checked;
+    var lageEinsatzstelleFreigelaende = document.getElementById("lageEinsatzstelleFreigelaende").checked;
+    var lageEinsatzstelleAufDemWasser = document.getElementById("lageEinsatzstelleAufDemWasser").checked;
+    var text = document.getElementById("artEinsatzstelleAuswertung");
+
+    if(lageEinsatzstelleOrt.value === "Auswählen"){
+        text.textContent = lageEinsatzstelleStrasse.value + " " + lageEinsatzstelleOrtUeberlandhilfe.value;
+        if(lageEinsatzstelleGebaeudeUntergeschoss === true){
+            text.textContent +=  " " + lageEinsatzstelleGebaeudeUntergeschossAnzahl.value + " " + "Untergeschoss";
+        }
+        if(lageEinsatzstelleGebaeudeErdgeschoss === true){
+            text.textContent += " Erdgeschoss";
+        }
+        if(lageEinsatzstelleGebaeudeObergeschoss === true){
+            text.textContent += " " + lageEinsatzstelleGebaeudeObergeschossAnzahl.value + " " + "Untergeschoss";
+        }
+        if(lageEinsatzstelleGebaeudeDachgeschoss === true){
+            text.textContent += " Dachgeschoss";
+        }
+        if(lageEinsatzstelleFreigelaende === true){
+            text.textContent += " Freigelände";
+        }
+        if(lageEinsatzstelleAufDemWasser === true){
+            text.textContent += " auf dem Wasser";
+        }
+    }
+    if(lageEinsatzstelleOrt.value !== "Auswählen"){
+        text.textContent = lageEinsatzstelleStrasse.value + " " + lageEinsatzstelleOrt.value;
+        if(lageEinsatzstelleGebaeudeUntergeschoss === true){
+            text.textContent += " " + lageEinsatzstelleGebaeudeUntergeschossAnzahl.value + " " + "Untergeschoss";
+        }
+        if(lageEinsatzstelleGebaeudeErdgeschoss === true){
+            text.textContent += " Erdgeschoss";
+        }
+        if(lageEinsatzstelleGebaeudeObergeschoss === true){
+            text.textContent += " " + lageEinsatzstelleGebaeudeObergeschossAnzahl.value + " " + "Untergeschoss";
+        }
+        if(lageEinsatzstelleGebaeudeDachgeschoss === true){
+            text.textContent += " Dachgeschoss";
+        }
+        if(lageEinsatzstelleFreigelaende === true){
+            text.textContent += " Freigelände";
+        }
+        if(lageEinsatzstelleAufDemWasser === true){
+            text.textContent += " auf dem Wasser";
+        }
+    }
+    
+}
+
+function SetNameAnschriftVerursacherGeschaedigten(){
+    var NameUndAnschriftVerursacherOderGeschaedigtenName = document.getElementById("NameUndAnschriftVerursacherOderGeschaedigtenName");
+    var NameUndAnschriftVerursacherOderGeschaedigtenStrasse = document.getElementById("NameUndAnschriftVerursacherOderGeschaedigtenStrasse");
+    var NameUndAnschriftVerursacherOderGeschaedigtenOrt = document.getElementById("NameUndAnschriftVerursacherOderGeschaedigtenOrt");
+    var NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen = document.getElementById("NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen");
+    var text = document.getElementById("nameAnschriftVerursacherGeschaedigtenAuswertung");
+
+    if(NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen.value === ""){
+        text.textContent = NameUndAnschriftVerursacherOderGeschaedigtenName.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenStrasse.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenOrt.value;
+    }
+    else{
+        text.textContent = NameUndAnschriftVerursacherOderGeschaedigtenName.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenStrasse.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenOrt.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen.value;
+    }
+}
+
+function SetGeretteteMenschen(){
+    var GeretteteMenschenBrand = document.getElementById("GeretteteMenschenBrand").checked;
+    var GeretteteMenschenBrandAnzahl = document.getElementById("GeretteteMenschenBrandAnzahl");
+    var GeretteteMenschenBrandAnzahlFahrzeugbraende = document.getElementById("GeretteteMenschenBrandAnzahlFahrzeugbraende");
+    var GeretteteMenschenBrandAnzahlMitRauchgasintoxikation = document.getElementById("GeretteteMenschenBrandAnzahlMitRauchgasintoxikation");
+    var GeretteteMenschenTechnischeHilfe = document.getElementById("GeretteteMenschenTechnischeHilfe");
+    var text = document.getElementById("geretteteMenschenAuswertung");
+
+    if(GeretteteMenschenBrandAnzahl.value == 0 && GeretteteMenschenBrandAnzahlFahrzeugbraende.value == 0 && GeretteteMenschenBrandAnzahlMitRauchgasintoxikation.value == 0 && GeretteteMenschenTechnischeHilfe.value == 0){
+        document.getElementById("geretteteMenschenAuswertung").setAttribute("hidden", true);
+        document.getElementById("geretteteMenschenAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("nameAnschriftVerursacherGeschaedigtenAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
+    if(GeretteteMenschenBrand === true){
+        if(GeretteteMenschenBrandAnzahlFahrzeugbraende.value != 0 && GeretteteMenschenBrandAnzahlMitRauchgasintoxikation == 0){
+            text.textContent = "Bei Bränden: " + GeretteteMenschenBrandAnzahl.value + " - davon " + GeretteteMenschenBrandAnzahlFahrzeugbraende.value + " bei Fahrzeugbränden";
+        }
+        if(GeretteteMenschenBrandAnzahlFahrzeugbraende.value != 0 && GeretteteMenschenBrandAnzahlMitRauchgasintoxikation != 0){
+            text.textContent = "Bei Bränden: " + GeretteteMenschenBrandAnzahl.value + " - davon " + GeretteteMenschenBrandAnzahlFahrzeugbraende.value + " bei Fahrzeugbränden" + " und " + GeretteteMenschenBrandAnzahlMitRauchgasintoxikation.value + " mit Rauchgasintoxikation";
+        }
+    }
+    else{
+        text.textContent = "Bei Technischer Hilfe: " + GeretteteMenschenTechnischeHilfe.value;
+    }
+
+}
+
+function SetToteMenschen(){
+    var ToteMenschenBrandCheck = document.getElementById("ToteMenschenBrandCheck").checked;
+    var ToteMenschenBrand = document.getElementById("ToteMenschenBrand");
+    var ToteMenschenBrandAnzahlFahrzeugbraende = document.getElementById("ToteMenschenBrandAnzahlFahrzeugbraende");
+    var ToteMenschenTechnischeHilfeCheck = document.getElementById("ToteMenschenTechnischeHilfeCheck").checked;
+    var ToteMenschenTechnischeHilfe = document.getElementById("ToteMenschenTechnischeHilfe");
+    var ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle = document.getElementById("ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle");
+    var text = document.getElementById("toteMenschenAuswertung");
+
+    if(ToteMenschenBrandCheck === false && ToteMenschenTechnischeHilfeCheck === false){
+        document.getElementById("toteMenschenAuswertung").setAttribute("hidden", true);
+        document.getElementById("toteMenschenAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("geretteteMenschenAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
+    if(ToteMenschenBrandCheck === true){
+        text.textContent = "Bei Bränden: " + ToteMenschenBrand.value + " - davon " + ToteMenschenBrandAnzahlFahrzeugbraende.value + " bei Fahrzeugbränden";
+    }
+    if(ToteMenschenTechnischeHilfeCheck === true){
+        text.textContent = "Bei Technischer Hilfeleistung: " + ToteMenschenTechnischeHilfe.value + " - davon " + ToteMenschentechnischeHilfeleistungAnzahlVerkehrsunfaelle.value + " bei Verkehrsunfällen";
+    }
+    
+}
+
+function SetTierrettung(){
+    var AnzahlTierRettung = document.getElementById("AnzahlTierRettung");
+    var text = document.getElementById("tierrettungAuswertung");
+
+    if(AnzahlTierRettung.value == 0){
+        document.getElementById("tierrettungAuswertung").setAttribute("hidden", true);
+        document.getElementById("tierrettungAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("toteMenschenAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
+    else{
+        text.textContent = "Anzahl Tiere: " + AnzahlTierRettung.value;
     }
 }
 
