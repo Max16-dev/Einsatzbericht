@@ -93,6 +93,19 @@
             <br>
             <input type="checkbox" id="brandÜberlandhilfeBrandBMA" class="brandÜberlandhilfeBrandBMA einsatztypAbstand">
             <label for="brandÜberlandhilfeBrandBMA">Überlandhilfe Brand (BMA)</label>
+            <br>
+            <input type="checkbox" id="BMAFehlalarm" class="BMAFehlalarm einsatztypAbstandGross">
+            <label for="BMAFehlalarm">BMA Fehlalarm: </label>
+            <div class="BMAFehlalarmPunkte">
+                <input type="checkbox" id="BMAFehlalarmTaeuschungsalarm" class="BMAFehlalarm einsatztypAbstand" onchange="BMAFehlalarmAuswaehlen()">
+                <label for="BMAFehlalarmTaeuschungsalarm">Täuschungsalarm</label>
+                <br>
+                <input type="checkbox" id="BMAFehlalarmTechnischerFehlalarm" class="BMAFehlalarm einsatztypAbstand" onchange="BMAFehlalarmAuswaehlen()">
+                <label for="BMAFehlalarmTechnischerFehlalarm">Technischer Fehlalarm</label>
+                <br>
+                <input type="checkbox" id="BMAFehlalarmBoeswilligerAlarm" class="BMAFehlalarm einsatztypAbstand" onchange="BMAFehlalarmAuswaehlen()">
+                <label for="BMAFehlalarmBoeswilligerAlarm">Böswilliger Alarm</label>
+            </div>
         </div>
         <div id="anzeigeTypTechnischeHilfeleistung" hidden>
             <h4 class="technischeHilfeleistungHeader">Technische Hilfeleistung</h4>
@@ -150,7 +163,7 @@
             <label for="technischeHilfeleistungUeberlandhilfe" class="technischeHilfeleistungAbstandLabel">Überlandhilfe TH</label>
             <br>
         </div>
-        <div id="anzeigeTypSonstiges" hidden>
+        <div id="anzeigeTypSonstiges">
             <input type="textbox" id="einsatzTypSonstiges" class="einsatzTypSonstiges" placeholder="Sonstiges">
         </div>
         <div id="artEinsatzstelle" class="artEinsatzstelle">
@@ -164,7 +177,7 @@
                 <input type="checkbox" id="artEinsatzstelleoeffentGebaeudeUndKulturbauten" class="artEinsatzstelleoeffentGebaeudeUndKulturbauten einsatztypAbstand">
                 <label for="artEinsatzstelleoeffentGebaeudeUndKulturbauten" class="artEinsatzstelleLabel">öffentl. Gebäude und Kulturbauten</label>
                 <br>
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="artEinsatzstelleSeniorenAltenPfelgeheim einsatztypAbstand">
+                <input type="checkbox" id="artEinsatzstelleoeffentSeniorenAltenPfelgeHeim" class="artEinsatzstelleSeniorenAltenPfelgeheim einsatztypAbstand">
                 <label for="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="artEinsatzstelleLabel">Senioren-/ Alten-/ Pfelgeheim</label>
                 <br>
                 <input type="checkbox" id="artEinsatzstelleVerkaufsstaette" class="artEinsatzstelleVerkaufsstaette einsatztypAbstand">
@@ -185,7 +198,7 @@
                 <input type="checkbox" id="artEinsatzstelleWald" class="artEinsatzstelleWald einsatztypAbstand">
                 <label for="artEinsatzstelleWald" class="artEinsatzstelleLabel">Wald</label>
                 <br>
-                <input type="text" id="technischeHilfeleistungMenschenrettungSonstiges" class="technischeHilfeleistungMenschenrettungSonstiges einsatztypAbstand" placeholder="Sonstiges">
+                <input type="text" id="artEinsatzstelleSonstiges" class="artEinsatzstelleSonstiges einsatztypAbstand" placeholder="Sonstiges">
         </div>
         <div id="lageEinsatzstelle" class="lageEinsatzstelle">
             <h4 class="lageEinsatzstelleHeader">Lage der Einsatzstelle: </h4>
@@ -243,6 +256,9 @@
             <br>
             <label for="NameUndAnschriftVerursacherOderGeschaedigtenOrt">Ort:</label>
             <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenOrt" class="NameUndAnschriftVerursacherOderGeschaedigtenOrt einsatztypAbstand">
+            <br>
+            <label for="NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen">Ggf. Kennzeichen:</label>
+            <input type="text" id="NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen" class="NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen einsatztypAbstand">
         </div>
         <div class="GeretteteMenschen" id="GeretteteMenschen">
             <h4 class="GeretteteMenschenHeader">Gerettete Menschen (nur im Stadtgebiet): </h4>
@@ -364,9 +380,78 @@
             <p><b>Bei Fragen zum Einsatzbericht bitte an wenden: </b></p>
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
-        <div id="uebersicht">
-            <p>Test</p>
+        <div>
+            <button id="erstellenUebersicht" onclick="erstellenUebersichtMitValidierung()" class="erstellenUebersicht">Übersicht erstellen</button>
         </div>
-        <button onclick="TestPDF()">PDF</button>
+        <div>
+            <p id="invalideEingabe" class="invalideEingabe"></p>
+        </div>
+        <div id="uebersicht" class="uebersicht">
+            <h3>Übersicht: </h3>
+            <div class="AuswertungDiv">
+                <h4>Alarmzeit: </h4>
+                <p class="AuswertungText" id="alarmzeitAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv">
+                <h4>Datum: </h4>
+                <p class="AuswertungText" id="alarmDatumAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv">
+                <h4>Alarm über: </h4>
+                <p class="AuswertungText" id="alarmArtUeberAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv">
+                <h4>Alarmart: </h4>
+                <p class="AuswertungText" id="alarmArtAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv">
+                <h4>Einsatztyp: </h4>
+                <p class="AuswertungText" id="einsatztypAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv">
+                <h4>Art der Einsatzstelle: </h4>
+                <p class="AuswertungText" id="artEinsatzstelleAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv">
+                <h4>Lage der Einsatzstelle: </h4>
+                <p class="AuswertungText" id="lageEinsatzstelleAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="ameAnschriftVerursacherGeschaedigtenAuswertungDiv">
+                <h4>Name und Anschrift des Verusacher / Geschädigten: </h4>
+                <p class="AuswertungText" id="nameAnschriftVerursacherGeschaedigtenAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="geretteteMenschenAuswertungDiv">
+                <h4>Gerettete Menschen: </h4>
+                <p class="AuswertungText" id="geretteteMenschenAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="toteMenschenAuswertungDiv">
+                <h4>Tote Menschen: </h4>
+                <p class="AuswertungText" id="toteMenschenAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="tierrettungAuswertungDiv">
+                <h4>Tierrettung: </h4>
+                <p class="AuswertungText" id="tierrettungAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="WasHatGebranntMitObjektUndLageBereichAuswertungDiv">
+                <h4>Was hat gebrannt, mit den Angaben des betroffenen Objekts / Lage bei Eintreffen: </h4>
+                <p class="AuswertungText" id="WasHatGebranntMitObjektUndLageBereichAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertungDiv">
+                <h4>Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter: </h4>
+                <p class="AuswertungText" id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="vorOrtAuswertungDiv">
+                <h4>Vor Ort: </h4>
+                <p class="AuswertungText" id="vorOrtAuswertungAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="verbrauchtesMaterialAuswertungDiv">
+                <h4>Verbrauchtes Material: </h4>
+                <p class="AuswertungText" id="verbrauchtesMaterialAuswertung">Test</p>
+            </div>
+            <div class="AuswertungDiv" id="FragenZumEinsatzBerichtAuswertungDiv">
+                <h4>Bei Fragen zum Einsatzbericht bitte an wenden: </h4>
+                <p class="AuswertungText" id="FragenZumEinsatzBerichtAuswertung">Test</p>
+            </div>
+        </div>
     </body>
 </html>
