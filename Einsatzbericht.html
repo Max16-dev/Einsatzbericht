@@ -100,28 +100,28 @@
             <label for="technischeHilfeleistungMenschenrettung">TH mit Menschenrettung:</label>
             <br>
             <div class="technischeHilfeleistungMenschenrettungAbstand">
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungTueroeffnung" class="technischeHilfeleistungMenschenrettungTueroeffnung einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungTueroeffnung" class="technischeHilfeleistungMenschenrettungTueroeffnung einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungTueroeffnung" class="technischeHilfeleistungAbstandLabel">Türöffnung</label>
                 <br>
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonInAufzug" class="technischeHilfeleistungMenschenrettungPersonInAufzug einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonInAufzug" class="technischeHilfeleistungMenschenrettungPersonInAufzug einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungPersonInAufzug">Person in Aufzug</label>
             </div>
             <div class="technischeHilfeleistungMenschenrettungAbstand">
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungVerkehrsunfall" class="technischeHilfeleistungMenschenrettungVerkehrsunfall einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungVerkehrsunfall" class="technischeHilfeleistungMenschenrettungVerkehrsunfall einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungVerkehrsunfall" class="technischeHilfeleistungAbstandLabel">Verkehrsunfall</label>
                 <br>
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonInWasser" class="technischeHilfeleistungMenschenrettungPersonInWasser einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonInWasser" class="technischeHilfeleistungMenschenrettungPersonInWasser einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungPersonInWasser" class="technischeHilfeleistungAbstandLabel">Person in Wasser</label>
             </div>
             <div class="technischeHilfeleistungMenschenrettungAbstand">
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungBauunfall" class="technischeHilfeleistungMenschenrettungBauunfall einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungBauunfall" class="technischeHilfeleistungMenschenrettungBauunfall einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungBauunfall" class="technischeHilfeleistungAbstandLabel">Bauunfall</label>
                 <br>
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="technischeHilfeleistungMenschenrettungPersonWillSpringen einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="technischeHilfeleistungMenschenrettungPersonWillSpringen einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungPersonWillSpringen" class="technischeHilfeleistungAbstandLabel">Person will springen</label>
             </div>
             <div class="technischeHilfeleistungMenschenrettungAbstand">
-                <input type="checkbox" id="technischeHilfeleistungMenschenrettungRettungUeberDL" class="technischeHilfeleistungMenschenrettungRettungUeberDL einsatztypAbstand">
+                <input type="checkbox" id="technischeHilfeleistungMenschenrettungRettungUeberDL" class="technischeHilfeleistungMenschenrettungRettungUeberDL einsatztypAbstand" onclick="THMenschenrettungAuswaehlen()">
                 <label for="technischeHilfeleistungMenschenrettungRettungUeberDL" class="technischeHilfeleistungAbstandLabel">Rettung über DL</label>
                 
             </div>
@@ -364,8 +364,8 @@
             <p><b>Bei Fragen zum Einsatzbericht bitte an wenden: </b></p>
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
-        <div >
-            <p id="testPDF">Test PDF</p>
+        <div id="uebersicht">
+            <p>Test</p>
         </div>
         <button onclick="TestPDF()">PDF</button>
     </body>

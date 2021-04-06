@@ -49,6 +49,26 @@ function changeEinsatzTyp(){
     }
 }
 
+function THMenschenrettungAuswaehlen(){
+    var technischeHilfeleistungMenschenrettung = document.getElementById("technischeHilfeleistungMenschenrettung");
+    var technischeHilfeleistungMenschenrettungTueroeffnung = document.getElementById("technischeHilfeleistungMenschenrettungTueroeffnung").checked;
+    var technischeHilfeleistungMenschenrettungPersonInAufzug = document.getElementById("technischeHilfeleistungMenschenrettungPersonInAufzug").checked;
+    var technischeHilfeleistungMenschenrettungVerkehrsunfall = document.getElementById("technischeHilfeleistungMenschenrettungVerkehrsunfall").checked;
+    var technischeHilfeleistungMenschenrettungPersonInWasser = document.getElementById("technischeHilfeleistungMenschenrettungPersonInWasser").checked;
+    var technischeHilfeleistungMenschenrettungBauunfall = document.getElementById("technischeHilfeleistungMenschenrettungBauunfall").checked;
+    var technischeHilfeleistungMenschenrettungPersonWillSpringen = document.getElementById("technischeHilfeleistungMenschenrettungPersonWillSpringen").checked;
+    var technischeHilfeleistungMenschenrettungRettungUeberDL = document.getElementById("technischeHilfeleistungMenschenrettungRettungUeberDL").checked;
+
+    if(technischeHilfeleistungMenschenrettungTueroeffnung === true || technischeHilfeleistungMenschenrettungPersonInAufzug === true || technischeHilfeleistungMenschenrettungVerkehrsunfall === true
+        || technischeHilfeleistungMenschenrettungPersonInWasser === true || technischeHilfeleistungMenschenrettungBauunfall === true || technischeHilfeleistungMenschenrettungPersonWillSpringen === true
+        || technischeHilfeleistungMenschenrettungRettungUeberDL === true){
+            technischeHilfeleistungMenschenrettung.checked = true;
+       }
+    else{
+        technischeHilfeleistungMenschenrettung.checked = false;
+    }
+}
+
 function TextBetreffenenObjekt(){
     var text = document.getElementById("WasHatGebranntMitObjektUndLage");
     var addTextBMAMelder = document.getElementById("addTextBMAMelder").checked;
@@ -88,7 +108,8 @@ function TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter(){
     }
 }
 
-function TestPDF(){
-    const text = document.getElementById("GeretteteMenschen");
-    html2pdf().from(text).save();
+
+
+function createPDF(){
+    var pdfDoc = html2pdf().from(text).save();
 }
