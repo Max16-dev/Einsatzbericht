@@ -403,7 +403,7 @@ function UebersichtErstellen(){
     SetAlarmzeit();
     SetDatum();
     SetAlarmUeber();
-    //SetAlarmArt();
+    SetAlarmArt();
     SetEinsatztyp();
     SetArtEinsatzstelle();
     SetLageEinsatzstelle();
@@ -855,6 +855,8 @@ function SetVorOrt(){
     var VorOrtSonstiges = document.getElementById("VorOrtSonstiges");
     var text = document.getElementById("vorOrtAuswertung");
     var textAusgabe = [];
+    var textAusgabeSplit = [];
+    var textAusgabeString;
     
         if(VorOrtKommandant === true){
             textAusgabe.push("Kommandant");
@@ -894,11 +896,15 @@ function SetVorOrt(){
         text.textContent = textAusgabe[0];
     }
     else{
-        linebreak = document.createElement("br");
         textAusgabe.forEach(element => {
-            text.textContent += " " + element;
+            textAusgabeString += " + " + element;
         });
-        
+        textAusgabeSplit = textAusgabeString.split(" + ");
+        textAusgabeSplit.shift();
+        textAusgabeSplit.forEach(element => {
+            text.textContent += " + " + element;
+            console.log(element);
+        });
     }
 }
 
