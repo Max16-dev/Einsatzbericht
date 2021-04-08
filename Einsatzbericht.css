@@ -274,3 +274,8 @@ body{
 .abstandEntferntemItem{
     margin-bottom: 0px;
 }
+
+.logo{
+    float: right;
+    height: 80px;
+}

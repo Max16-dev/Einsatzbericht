@@ -12,7 +12,6 @@ function changeEinsatzTyp(){
     var anzeigeTypBrand = document.getElementById("anzeigeTypBrand");
     var anzeigeTypBrandmeldeanlage = document.getElementById("anzeigeTypBrandmeldeanlage");
     var anzeigeTypTechnischeHilfeleistung = document.getElementById("anzeigeTypTechnischeHilfeleistung");
-    var anzeigeTypSonstiges = document.getElementById("anzeigeTypSonstiges");
 
     switch(selectElement){
         case "Brand":
@@ -130,19 +129,19 @@ function erstellenUebersichtMitValidierung(){
     var ValidierungEinsatzTypStatus = ValidierungEinsatzTyp();
     var ValidierungArtEinsatzstelleStatus = ValidierungArtEinsatzstelle();
     var ValidierungLageEinsatzstelleStatus = ValidierungLageEinsatzstelle();
-    /*ValidierungNameAnschriftVerursacher();
-    ValidierungGeretteUndToteMeschenuUndTiere();*/
     var ValidierungWasHatGebranntStatus = ValidierungWasHatGebrannt();
     var ValidierungTaetigkeitFeuerwehrStatus = ValidierungTaetigkeitFeuerwehr();
-    var ValidierungEntstehungsursacheStatus = ValidierungEntstehungsursache();
     var ValidierungFragenEinsatzberichtStatus = ValidierungFragenEinsatzbericht();
 
     if(ValidierungAlarmUeberStatus === 0 && ValidierungAlarmArtStatus === 0 && ValidierungEinsatzTypStatus === 0
         && ValidierungArtEinsatzstelleStatus === 0 && ValidierungLageEinsatzstelleStatus === 0
         && ValidierungWasHatGebranntStatus === 0 && ValidierungTaetigkeitFeuerwehrStatus === 0
-        && ValidierungEntstehungsursacheStatus === 0 && ValidierungFragenEinsatzberichtStatus === 0)
+        && ValidierungFragenEinsatzberichtStatus === 0)
         {
             UebersichtErstellen();
+            document.getElementById("uebersicht").removeAttribute("hidden");
+            document.getElementById("PDFErstellenDiv").removeAttribute("hidden");
+            document.getElementById("uebersichtHeader").removeAttribute("hidden");
         }
 }
 
@@ -359,23 +358,6 @@ function ValidierungTaetigkeitFeuerwehr(){
     return 0; 
 }
 
-function ValidierungEntstehungsursache(){
-    var fehlerText = document.getElementById("invalideEingabe");
-    var Entstehungsursache = document.getElementById("Entstehungsursache");
-
-    if(Entstehungsursache.value === ""){
-        if(fehlerText.textContent === ""){
-            fehlerText.textContent += "Keine Auswahl bei \"Entstehungsursache\" getroffen";
-        }
-        else{
-            fehlerText.textContent += ";" + " Keine Auswahl bei \"Entstehungsursache\" getroffen";
-        }
-        return 1;
-    }
-
-    return 0;
-}
-
 function ValidierungFragenEinsatzbericht(){
     var fehlerText = document.getElementById("invalideEingabe");
     var FragenZumEinsatzBericht = document.getElementById("FragenZumEinsatzBericht");
@@ -408,7 +390,7 @@ function UebersichtErstellen(){
     SetWasHatGebranntMitObjektUndLageBereich();
     SetTaetigkeitDerFeuerwehrMitBehandlungVerunglueckter();
     SetEntstehungsursache();
-    SetBesondereVorkommnisseEinsatzstelle
+    SetBesondereVorkommnisseEinsatzstelle();
     SetVorOrt();
     SetVerbrauchtesMaterial();
     SetFragenZumEinsatzbreicht();
@@ -734,6 +716,12 @@ function SetNameAnschriftVerursacherGeschaedigten(){
     var NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen = document.getElementById("NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen");
     var text = document.getElementById("nameAnschriftVerursacherGeschaedigtenAuswertung");
 
+    if(NameUndAnschriftVerursacherOderGeschaedigtenName.value === "" && NameUndAnschriftVerursacherOderGeschaedigtenStrasse.value === "" &&
+    NameUndAnschriftVerursacherOderGeschaedigtenOrt.value === "" && NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen.value === ""){
+        document.getElementById("nameAnschriftVerursacherGeschaedigtenAuswertung").setAttribute("hidden", true);
+        document.getElementById("nameAnschriftVerursacherGeschaedigtenAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("lageEinsatzstelleAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
     if(NameUndAnschriftVerursacherOderGeschaedigtenKennzeichen.value === ""){
         text.textContent = NameUndAnschriftVerursacherOderGeschaedigtenName.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenStrasse.value + " " + NameUndAnschriftVerursacherOderGeschaedigtenOrt.value;
     }
@@ -824,6 +812,12 @@ function SetEntstehungsursache(){
     var Entstehungsursache = document.getElementById("Entstehungsursache");
     var text = document.getElementById("entstehungsursacheAuswertung");
 
+    if(Entstehungsursache.value === ""){
+        document.getElementById("entstehungsursacheAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("entstehungsursacheAuswertung").setAttribute("hidden", true);
+        document.getElementById("entstehungsursacheAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
+
     text.textContent = Entstehungsursache.value;
 }
 
@@ -831,6 +825,12 @@ function SetBesondereVorkommnisseEinsatzstelle(){
     var BesondereVorkommnisseAnDerEinsatzstelle = document.getElementById("BesondereVorkommnisseAnDerEinsatzstelle");
     var text = document.getElementById("besondereVorkommnisseEinsatzstelleAuswertung");
 
+    console.log(BesondereVorkommnisseAnDerEinsatzstelle.value);
+    if(BesondereVorkommnisseAnDerEinsatzstelle.value === ""){
+        document.getElementById("besondereVorkommnisseEinsatzstelleAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("besondereVorkommnisseEinsatzstelleAuswertung").setAttribute("hidden", true);
+        document.getElementById("entstehungsursacheAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
     text.textContent = BesondereVorkommnisseAnDerEinsatzstelle.value;
 
 }
@@ -849,8 +849,6 @@ function SetVorOrt(){
     var VorOrtSonstiges = document.getElementById("VorOrtSonstiges");
     var text = document.getElementById("vorOrtAuswertung");
     var textAusgabe = [];
-    var textAusgabeSplit = [];
-    var textAusgabeString;
     
         if(VorOrtKommandant === true){
             textAusgabe.push("Kommandant");
@@ -887,7 +885,7 @@ function SetVorOrt(){
         }
 
     if(textAusgabe.length <= 1){
-        text.textContent = textAusgabe[0];
+        text.textContent = "- " + textAusgabe[0];
     }
     else{
 
@@ -900,27 +898,18 @@ function SetVorOrt(){
             console.log(tag);
             text.appendChild(tag);
         });
-        /*textAusgabeSplit = textAusgabeString.split(" + ");
-
-        for(var i = 1; i <= textAusgabeSplit.length; i++){
-            if(textAusgabeSplit[i] == undefined){
-                break;
-            }
-            if(i >= textAusgabeSplit.length - 1){
-                text.textContent += textAusgabeSplit[i];
-            }
-            else{
-                var br = document.createElement('br');
-                var textNeu = textAusgabeSplit[i] + br;
-                text.appendChild(textNeu);
-            }
-        }*/
     }
 }
 
 function SetVerbrauchtesMaterial(){
     var VerbrauchtesMaterial = document.getElementById("VerbrauchtesMaterial");
     var text = document.getElementById("verbrauchtesMaterialAuswertung");
+
+    if(VerbrauchtesMaterial.value === ""){
+        document.getElementById("verbrauchtesMaterialAuswertungHeader").setAttribute("hidden", true);
+        document.getElementById("verbrauchtesMaterialAuswertung").setAttribute("hidden", true);
+        document.getElementById("vorOrtAuswertungDiv").classList.add('abstandEntferntemItem');
+    }
 
     text.textContent = VerbrauchtesMaterial.value;
 }
@@ -932,6 +921,14 @@ function SetFragenZumEinsatzbreicht(){
     text.textContent = FragenZumEinsatzBericht.value;
 }
 
-function createPDF(){
-    var pdfDoc = html2pdf().from(text).save();
+function PDFErstellen(){
+    var text = document.getElementById("uebersicht");
+    var opt = {
+        left: 0.4,
+        filename:     'Einsatzbericht.pdf',
+        image:        { type: 'jpeg', quality: 1.0 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+    html2pdf().from(text).set(opt).save();
 }

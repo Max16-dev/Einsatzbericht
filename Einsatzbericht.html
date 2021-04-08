@@ -379,85 +379,90 @@
             <input type="text" id="FragenZumEinsatzBericht" class="FragenZumEinsatzBericht">
         </div>
         <div>
-            <button id="erstellenUebersicht" onclick="SetVorOrt()" class="erstellenUebersicht">Übersicht erstellen</button>
+            <button id="erstellenUebersicht" onclick="erstellenUebersichtMitValidierung()" class="erstellenUebersicht">Übersicht erstellen</button>
         </div>
         <div>
             <p id="invalideEingabe" class="invalideEingabe"></p>
         </div>
-        <div id="uebersicht" class="uebersicht" >
-            <h3 >Übersicht: </h3>
+        <h3 id="uebersichtHeader" hidden>Übersicht: </h3>
+        <div id="uebersicht" class="uebersicht" hidden>
+            <img class="logo" src="Feuerwehr_WN_Logo.png">
             <div class="AuswertungDiv">
                 <p>Alarmzeit: </p>
-                <b><p class="AuswertungText" id="alarmzeitAuswertung">Test</p></b>
+                <b><p class="AuswertungText" id="alarmzeitAuswertung"></p></b>
             </div>
             <div class="AuswertungDiv">
                 <h4>Datum: </h4>
-                <p class="AuswertungText" id="alarmDatumAuswertung">Test</p>
+                <p class="AuswertungText" id="alarmDatumAuswertung"></p>
             </div>
             <div class="AuswertungDiv">
                 <h4>Alarm über: </h4>
-                <p class="AuswertungText" id="alarmArtUeberAuswertung">Test</p>
+                <p class="AuswertungText" id="alarmArtUeberAuswertung"></p>
             </div>
             <div class="AuswertungDiv">
                 <h4>Alarmart: </h4>
-                <p class="AuswertungText" id="alarmArtAuswertung">Test</p>
+                <p class="AuswertungText" id="alarmArtAuswertung"></p>
             </div>
             <div class="AuswertungDiv">
                 <h4>Einsatztyp: </h4>
-                <p class="AuswertungText" id="einsatztypAuswertung">Test</p>
+                <p class="AuswertungText" id="einsatztypAuswertung"></p>
             </div>
             <div class="AuswertungDiv">
                 <h4>Art der Einsatzstelle: </h4>
-                <p class="AuswertungText" id="artEinsatzstelleAuswertung">Test</p>
+                <p class="AuswertungText" id="artEinsatzstelleAuswertung"></p>
             </div>
-            <div class="AuswertungDiv">
-                <h4>Lage der Einsatzstelle: </h4>
-                <p class="AuswertungText" id="lageEinsatzstelleAuswertung">Test</p>
+            <div class="AuswertungDiv" id="lageEinsatzstelleAuswertungDiv">
+                <h4 id="lageEinsatzstelleAuswertungHeader">Lage der Einsatzstelle: </h4>
+                <p class="AuswertungText" id="lageEinsatzstelleAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="nameAnschriftVerursacherGeschaedigtenAuswertungDiv">
-                <h4>Name und Anschrift des Verusacher / Geschädigten: </h4>
-                <p class="AuswertungText" id="nameAnschriftVerursacherGeschaedigtenAuswertung">Test</p>
+                <h4 id="nameAnschriftVerursacherGeschaedigtenAuswertungHeader">Name und Anschrift des Verusacher / Geschädigten: </h4>
+                <p class="AuswertungText" id="nameAnschriftVerursacherGeschaedigtenAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="geretteteMenschenAuswertungDiv" >
                 <h4 id="geretteteMenschenAuswertungHeader">Gerettete Menschen: </h4>
-                <p class="AuswertungText" id="geretteteMenschenAuswertung">Test</p>
+                <p class="AuswertungText" id="geretteteMenschenAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="toteMenschenAuswertungDiv">
                 <h4 id="toteMenschenAuswertungHeader">Tote Menschen: </h4>
-                <p class="AuswertungText" id="toteMenschenAuswertung">Test</p>
+                <p class="AuswertungText" id="toteMenschenAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="tierrettungAuswertungDiv">
                 <h4 id="tierrettungAuswertungHeader">Tierrettung: </h4>
-                <p class="AuswertungText" id="tierrettungAuswertung">Test</p>
+                <p class="AuswertungText" id="tierrettungAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="WasHatGebranntMitObjektUndLageBereichAuswertungDiv">
                 <h4>Was hat gebrannt, mit den Angaben des betroffenen Objekts / Lage bei Eintreffen: </h4>
-                <p class="AuswertungText" id="WasHatGebranntMitObjektUndLageBereichAuswertung">Test</p>
+                <p class="AuswertungText" id="WasHatGebranntMitObjektUndLageBereichAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertungDiv">
                 <h4>Tätigkeit der Feuerwehr, einschließlich Behandlung Verungklückter: </h4>
-                <p class="AuswertungText" id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertung">Test</p>
+                <p class="AuswertungText" id="TaetigkeitDerFeuerwehrMitBehandlungVerunglueckterAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="entstehungsursacheAuswertungDiv">
-                <h4>Entstehungsursache: </h4>
-                <p class="AuswertungText" id="entstehungsursacheAuswertung">Test</p>
+                <h4 id="entstehungsursacheAuswertungHeader">Entstehungsursache: </h4>
+                <p class="AuswertungText" id="entstehungsursacheAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="besondereVorkommnisseEinsatzstelleAuswertungDiv">
-                <h4>Besondere Vorkommnisse an der Einsatzstelle: </h4>
-                <p class="AuswertungText" id="besondereVorkommnisseEinsatzstelleAuswertung">Test</p>
+                <h4 id="besondereVorkommnisseEinsatzstelleAuswertungHeader">Besondere Vorkommnisse an der Einsatzstelle: </h4>
+                <p class="AuswertungText" id="besondereVorkommnisseEinsatzstelleAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="vorOrtAuswertungDiv">
                 <h4>Vor Ort: </h4>
                 <div class="AuswertungText" id="vorOrtAuswertung"></div>
             </div>
             <div class="AuswertungDiv" id="verbrauchtesMaterialAuswertungDiv">
-                <h4>Verbrauchtes Material: </h4>
-                <p class="AuswertungText" id="verbrauchtesMaterialAuswertung">Test</p>
+                <h4 id="verbrauchtesMaterialAuswertungHeader">Verbrauchtes Material: </h4>
+                <p class="AuswertungText" id="verbrauchtesMaterialAuswertung"></p>
             </div>
             <div class="AuswertungDiv" id="FragenZumEinsatzBerichtAuswertungDiv">
                 <h4>Bei Fragen zum Einsatzbericht bitte an wenden: </h4>
-                <p class="AuswertungText" id="FragenZumEinsatzBerichtAuswertung">Test</p>
+                <p class="AuswertungText" id="FragenZumEinsatzBerichtAuswertung"></p>
             </div>
+        </div>
+        <div id="PDFErstellenDiv" hidden>
+            <p>Die obenstehnden Punkte sind richtig und die PDF kann erstellt werden</p>
+            <button id="PDFErstellen" onclick="PDFErstellen()">PDF erstellen</button>
         </div>
     </body>
 </html>
