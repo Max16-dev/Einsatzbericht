@@ -19,38 +19,32 @@ function changeEinsatzTyp(){
             anzeigeTypBrand.removeAttribute("hidden");
             anzeigeTypTechnischeHilfeleistung.setAttribute("hidden", true);
             anzeigeTypBrandmeldeanlage.setAttribute("hidden", true);
-            anzeigeTypSonstiges.setAttribute("hidden", true);
             break;
         case "Brandmeldeanlage":
             anzeigeTypBrandmeldeanlage.removeAttribute("hidden");
             anzeigeTypTechnischeHilfeleistung.setAttribute("hidden", true);
             anzeigeTypBrand.setAttribute("hidden", true);
-            anzeigeTypSonstiges.setAttribute("hidden", true);
             break;
         case "Technische Hilfeleistung":
             anzeigeTypTechnischeHilfeleistung.removeAttribute("hidden");
             anzeigeTypBrand.setAttribute("hidden", true);
             anzeigeTypBrandmeldeanlage.setAttribute("hidden", true);
-            anzeigeTypSonstiges.setAttribute("hidden", true);
             break;
         case "Alles anzeigen":
             anzeigeTypBrand.removeAttribute("hidden");
             anzeigeTypBrandmeldeanlage.removeAttribute("hidden", true);
             anzeigeTypTechnischeHilfeleistung.removeAttribute("hidden");
-            anzeigeTypSonstiges.removeAttribute("hidden", true);
             break;
         case "Sonstige Einsätze":
             anzeigeTypTechnischeHilfeleistung.setAttribute("hidden", true);
             anzeigeTypBrand.setAttribute("hidden", true);
             anzeigeTypBrandmeldeanlage.setAttribute("hidden", true);
-            anzeigeTypSonstiges.removeAttribute("hidden");
             break;
         case "Auswählen":
             anzeigeTypBrand.setAttribute("hidden", true);
             anzeigeTypTechnischeHilfeleistung.setAttribute("hidden", true);
             anzeigeTypBrand.setAttribute("hidden", true);
             anzeigeTypBrandmeldeanlage.setAttribute("hidden", true);
-            anzeigeTypSonstiges.setAttribute("hidden", true);
     }
 }
 
@@ -122,9 +116,9 @@ function TaetigkeitDerFeuerwehrMitBehandlungVerunglueckter(){
         text.value = text.value.replace(einsatzEnde, "");
         text.value += "Der defekte Melder wurde vom Betreiber außer Betrieb genommen. " + "\n" + "Einsatzende";
     }
-    if(addTextBMAFeuerwehrZurueckgestellt == true && (!text.value.includes("zurückgestellt"))){
+    if(addTextBMAFeuerwehrZurueckgestellt == true && (!text.value.includes("stummgestellt"))){
         text.value = text.value.replace(einsatzEnde, "");
-        text.value += "Die BMA wurde von der Feuerwehr mehr stummgestellt. " + "\n" + "Einsatzende";
+        text.value += "Die BMA wurde von der Feuerwehr stummgestellt. " + "\n" + "Einsatzende";
     }
 }
 
