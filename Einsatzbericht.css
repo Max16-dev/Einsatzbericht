@@ -263,16 +263,14 @@ body{
 }
 
 .AuswertungDiv{
-    display: flex;
-    margin-bottom: -18px;
+    margin-bottom: -2px;
 }
 
 .AuswertungText{
     margin-left: 11px;
-    margin-top: 22px;
+    margin-top: 2px;
 }
 
 .abstandEntferntemItem{
-    display: flex;
-    margin-bottom: -3px;
+    margin-bottom: 0px;
 }

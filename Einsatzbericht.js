@@ -415,7 +415,7 @@ function UebersichtErstellen(){
     SetTaetigkeitDerFeuerwehrMitBehandlungVerunglueckter();
     SetEntstehungsursache();
     SetBesondereVorkommnisseEinsatzstelle
-    SetVorOt();
+    SetVorOrt();
     SetVerbrauchtesMaterial();
     SetFragenZumEinsatzbreicht();
 }
@@ -452,7 +452,7 @@ function SetAlarmUeber(){
     
 }
 
-function SerAlarmUeber(){
+function SetAlarmArt(){
     var alarmArtVollalarm = document.getElementById("alarmArtVollalarm").checked;
     var alarmArtKleinschleife = document.getElementById("alarmArtKleinschleife").checked;
     var alarmArtSonstiges = document.getElementById("alarmArtSonstiges");
@@ -636,7 +636,7 @@ function SetArtEinsatzstelle(){
     var artEinsatzstelleLandwirtschaftlicherBetrieb = document.getElementById("artEinsatzstelleLandwirtschaftlicherBetrieb").checked;
     var artEinsatzstelleWald = document.getElementById("artEinsatzstelleWald").checked;
     var artEinsatzstelleSonstiges = document.getElementById("artEinsatzstelleSonstiges");
-    var text = document.getElementById("einsatztypAuswertung");
+    var text = document.getElementById("artEinsatzstelleAuswertung");
 
     if(artEinsatzstelleWohngebaeude === true){
         text.textContent = "Wohngebäude";
@@ -896,15 +896,31 @@ function SetVorOrt(){
         text.textContent = textAusgabe[0];
     }
     else{
+
+        
+
         textAusgabe.forEach(element => {
-            textAusgabeString += " + " + element;
+            var tag = document.createElement('p');
+            tag.textContent = "- " + element;
+            console.log(tag.text);
+            console.log(tag);
+            text.appendChild(tag);
         });
-        textAusgabeSplit = textAusgabeString.split(" + ");
-        textAusgabeSplit.shift();
-        textAusgabeSplit.forEach(element => {
-            text.textContent += " + " + element;
-            console.log(element);
-        });
+        /*textAusgabeSplit = textAusgabeString.split(" + ");
+
+        for(var i = 1; i <= textAusgabeSplit.length; i++){
+            if(textAusgabeSplit[i] == undefined){
+                break;
+            }
+            if(i >= textAusgabeSplit.length - 1){
+                text.textContent += textAusgabeSplit[i];
+            }
+            else{
+                var br = document.createElement('br');
+                var textNeu = textAusgabeSplit[i] + br;
+                text.appendChild(textNeu);
+            }
+        }*/
     }
 }
 
@@ -912,14 +928,14 @@ function SetVerbrauchtesMaterial(){
     var VerbrauchtesMaterial = document.getElementById("VerbrauchtesMaterial");
     var text = document.getElementById("verbrauchtesMaterialAuswertung");
 
-    text.textContent = VerbrauchtesMaterial;
+    text.textContent = VerbrauchtesMaterial.value;
 }
 
 function SetFragenZumEinsatzbreicht(){
     var FragenZumEinsatzBericht = document.getElementById("FragenZumEinsatzBericht");
     var text = document.getElementById("FragenZumEinsatzBerichtAuswertung");
 
-    text.textContent = FragenZumEinsatzBericht;
+    text.textContent = FragenZumEinsatzBericht.value;
 }
 
 function createPDF(){
